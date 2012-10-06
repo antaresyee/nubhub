@@ -1,0 +1,19 @@
+<% if signed_in? %>
+  USER SIGNED IN
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to Nubhub!</h1>
+
+    <h2>
+      This is the start up homepage. Sign up to become a nubber!
+    </h2>
+    <%= link_to "Sign up now!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+    <h2>
+      <br />
+      Already a member? 
+      <%= link_to "Sign in", signin_path %>
+    </h2>
+  </div>
+
+<% end %> 
