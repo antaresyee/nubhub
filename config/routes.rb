@@ -3,15 +3,15 @@ Nubhub::Application.routes.draw do
   root to: 'pages#home'
 
   resources :users
-  resources :notes, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :pages
+  resources :uploads
 
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/help', to: 'pages#help'
-
+  match '/upload', to: 'uploads#index', as: 'upload'
 
 
   # The priority is based upon order of creation:
