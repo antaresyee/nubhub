@@ -1,5 +1,22 @@
 Nubhub::Application.routes.draw do
+<<<<<<< HEAD
   get "home/index"
+=======
+
+  root to: 'pages#home'
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :pages
+  resources :uploads
+
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/help', to: 'pages#help'
+  match '/upload', to: 'uploads#index', as: 'upload'
+
+>>>>>>> 2e6a9588818f5a851eb0635e7c04c0211aa1aec7
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

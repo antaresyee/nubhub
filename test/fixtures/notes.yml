@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  department: MyString
+  class_num: 1
+  nid: 1
+  content: MyString
+  number_downloads: 1
+
+two:
+  department: MyString
+  class_num: 1
+  nid: 1
+  content: MyString
+  number_downloads: 1
