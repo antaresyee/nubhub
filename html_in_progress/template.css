@@ -13,7 +13,7 @@
 }
 
 @font-face {
-	font-family:cabin-bold;
+	font-family:cabin_bold;
 	src:url("..app/assets/fonts/Cabin-Bold.otf");
 }
 
@@ -28,11 +28,15 @@ body {
 	position:relative;
 }
 
-#landing_login_signup_link {
+#template_login_logout_link {
 	position:absolute;
 	right:20px;
 	font-family:cabin_bold;
 	font-size:18px;
+}
+
+#main_nav ul li a{
+	font-family:cabin_bold;
 }
 
 #landing_cloud {
