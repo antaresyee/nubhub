@@ -30,6 +30,14 @@ body {
 	font-size:18px;
 }
 
+#landing_login_signup_link a{
+	text-decoration:none;
+}
+
+#landing_login_signup_link a:hover{
+	color:#B5B4B4;
+}
+
 #landing_cloud {
 	position:absolute;
 	left:-280px;
