@@ -1,3 +1,5 @@
+
+
 /*
 @author antaresyee
 */
@@ -21,6 +23,19 @@
 body { 
 	background-color:#6B96E4; 
 	position:relative;
+	margin:0px;
+}
+
+#nav_container {
+	position:relative;
+	height:175px;
+	background-color:#B5B4B4;
+}
+
+#template_logo {
+	position:relative;
+	top:20px;
+	left:20px;
 }
 
 #template_login_logout_link {
@@ -30,38 +45,35 @@ body {
 	font-size:18px;
 }
 
-#main_nav ul li a{
-	font-family:Cabin;
-	text-decoration:none;
+#main_nav ul{
+	margin:0;
+	padding:0;
 }
 
 #main_nav ul li{
+	position:relative;
+	top:30px;
 	list-style:none;
+	display:inline;
 }
 
-#landing_cloud {
-	position:absolute;
-	left:-280px;
+#main_nav ul li:hover{
+	background-color:blue;
+	
 }
 
-#landing_nubhub {
-	position:absolute;
-	left:185px;
-	top:165px;
-	font-family:vag_rounded;
-	font-size:72px;
-}
-
-#landing_caption {
-	position:absolute;
-	left:640px;
-	top:210px;
+#main_nav ul li a{
+	font-family:Cabin;
+	text-decoration:none;
 	font-size:24px;
-	line-height:120%;
+
+	padding-left:90px;
+	padding-right:90px;
+	padding-top:5px;
+	padding-bottom:5px;
+
 }
 
-#landing_button {
-	position:absolute;
-	left:640px;
-	top:390px;
+#main_nav ul li a:hover{
+	background-color:#A19F9F;
 }
