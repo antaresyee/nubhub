@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Nubhub::Application.config.secret_token = '3fe0f206bed2ec997751fea060ca6c5e23b8d1aa03db6496eb57fd4af05ca1aa37bf65bb6ed8a6f6d0cce094569f394edeb34c54150dff30e3c6c91d29a63dbf'
+Nubhub::Application.config.secret_token = 'f7fab3df39722ae9dbaf9dcf5dc6a7513e0daaac4686c1578d5f93d79ab664b8d45a624b02702a7ee05d8a9ef6200cdeae9eaf0ce4b711ae8dbd6eea26aaebed'

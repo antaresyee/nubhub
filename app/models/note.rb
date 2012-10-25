@@ -1,7 +1,6 @@
 class Note < ActiveRecord::Base
   attr_accessible :class_num, :upload, :department, :number_downloads
   has_attached_file :upload
-  belongs_to :user
 
   validates :upload, presence: true
   validates :user_id, presence: true

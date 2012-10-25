@@ -11,67 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006115516) do
-
-  create_table "courses", :force => true do |t|
-    t.string   "department"
-    t.integer  "class_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "downloaded_bies", :force => true do |t|
-    t.string   "user_email"
-    t.integer  "note_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "content"
-  end
-
-  add_index "downloaded_bies", ["user_email"], :name => "index_downloaded_bies_on_user_email"
-
-  create_table "notes", :force => true do |t|
-    t.string   "department"
-    t.integer  "class_num"
-    t.integer  "nid"
-    t.string   "content"
-    t.integer  "number_downloads"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "user_id"
-  end
-
-  add_index "notes", ["class_num", "content", "department", "nid"], :name => "index_notes_on_class_num_and_content_and_department_and_nid"
-
-  create_table "uploaded_bies", :force => true do |t|
-    t.string   "user_email"
-    t.integer  "note_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "content"
-  end
-
-  add_index "uploaded_bies", ["user_email"], :name => "index_uploaded_bies_on_user_email"
-
-  create_table "uploads", :force => true do |t|
-    t.string   "upload_file_name"
-    t.string   "upload_content_type"
-    t.integer  "upload_file_size"
-    t.datetime "upload_updated_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121025220813) do
 
   create_table "users", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.string   "name"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
