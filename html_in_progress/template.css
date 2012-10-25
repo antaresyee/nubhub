@@ -12,11 +12,6 @@
 	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
 }
 
-@font-face {
-	font-family:cabin_bold;
-	src:url("..app/assets/fonts/Cabin-Bold.otf");
-}
-
 * {
 	font-family:proxima_nova;
 	font-size:18px;
@@ -31,12 +26,17 @@ body {
 #template_login_logout_link {
 	position:absolute;
 	right:20px;
-	font-family:cabin_bold;
+	font-family:Cabin;
 	font-size:18px;
 }
 
 #main_nav ul li a{
-	font-family:cabin_bold;
+	font-family:Cabin;
+	text-decoration:none;
+}
+
+#main_nav ul li{
+	list-style:none;
 }
 
 #landing_cloud {
