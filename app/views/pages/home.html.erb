@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- @author antaresyee -->
+
+<p id="landing_login_signup_link">
+
+  <%if user_signed_in? %> 
+  <a>logout</a>
+  <% else %>
+  <a>login</a>
+  <% end %>
+
+  / <a>signup</a></p>
+
+  <p id="landing_nubhub">nubhub</p>
+
+  <img id="landing_cloud" src="../assets/cloud_logo.png" width="600" height="600">
+
+
+  <a id="landing_button"><img src="../assets/whats_nubhub_button.jpg"></a>
+
+  <p id="landing_caption">
+    Miss a lecture? Nubhub is a</br> 
+    free note sharing site meant</br> 
+    for college students who are,</br> 
+    well, college students!</br>
+  </p>
+
