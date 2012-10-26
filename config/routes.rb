@@ -1,10 +1,9 @@
 Nubhub::Application.routes.draw do
 
-  root to: 'pages#home'
-
   devise_for :users
-
+  root to: 'pages#landing'
   resources :pages
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
