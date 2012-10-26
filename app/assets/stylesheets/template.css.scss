@@ -4,64 +4,147 @@
 
 @font-face {
 	font-family:proxima_nova;
-	src:url("../fonts/ProximaNova-Regular.otf");
+	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
 }
 
 @font-face {
 	font-family:vag_rounded;
-	src:url("../fonts/VAG-Rounded-Bold.ttf");
+	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
 }
 
-@font-face {
-	font-family:cabin_bold;
-	src:url("../fonts/Cabin-Bold.otf");
-}
-
+/* UNIVERSAL STYLING */
 * {
 	font-family:proxima_nova;
 	font-size:18px;
 	color:white;
 }
 
+input {
+	color: black;
+}
+
 body { 
 	background-color:#6B96E4; 
+	margin:0px;
+}
+
+ul {
+	margin:0px;
+	padding:0px;
+}
+
+ul li {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+
+a {
+	text-decoration:none;
+}
+
+/* MAIN NAV */
+#nav_container {
 	position:relative;
+	height:150px;
+	background-color:#B5B4B4;
+}
+
+#template_logo {
+	position:relative;
+	top:20px;
+	left:20px;
 }
 
 #template_login_logout_link {
 	position:absolute;
-	right:20px;
-	font-family:cabin_bold;
+	right:50px;
+	top:10px;
+	font-family:Cabin;
 	font-size:18px;
 }
 
+#template_login_logout_link a:hover{
+	color:#6B96E4;
+}
+
+#main_nav ul li{
+	position:relative;
+	top:43px;
+	list-style:none;
+	display:inline;
+}
+
 #main_nav ul li a{
-	font-family:cabin_bold;
-}
-
-#landing_cloud {
-	position:absolute;
-	left:-280px;
-}
-
-#landing_nubhub {
-	position:absolute;
-	left:185px;
-	top:165px;
-	font-family:vag_rounded;
-	font-size:72px;
-}
-
-#landing_caption {
-	position:absolute;
-	left:640px;
-	top:210px;
+	font-family:Cabin;
 	font-size:24px;
-	line-height:120%;
+	padding-left:40px;
+	padding-right:40px;
+	padding-top:5px;
+	padding-bottom:5px;
+
 }
 
-#landing_button {
-	position:absolute;
-	left:640px;
-	top:390px;
+#main_nav ul li a:hover{
+	background-color:#A19F9F;
 }
+
+#my_notes_nav {
+	position:relative;
+	left:3%;
+}
+
+#browse_notes_nav {
+	position:relative;
+	left:11%;
+}
+
+#how_it_works_nav {
+	position:relative;
+	left:20%;
+}
+
+#contact_us_nav {
+	position:relative;
+	left:28%;
+}
+
+/* FOOTER */
+#footer_container {
+	position:absolute;
+	bottom:0px;
+	height:50px;
+	width:100%;
+	background-color:#B5B4B4;
+}
+
+#footer_container ul li{
+	position:relative;
+	display:inline;
+}
+
+#footer_container ul li a{
+	font-family:Cabin;
+	font-size:18px;
+	position:relative;
+	top:12px;
+
+}
+
+footer ul li a:hover{
+	color:#6B96E4;
+}
+
+#privacy_footer {
+	left:5%;
+}
+
+#contact_us_footer {
+	left:8%;
+}
+
+
+
+
+
+
