@@ -14,6 +14,7 @@
 	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
 }
 
+/* UNIVERSAL STYLING */
 * {
 	font-family:proxima_nova;
 	font-size:18px;
@@ -22,10 +23,25 @@
 
 body { 
 	background-color:#6B96E4; 
-	position:relative;
 	margin:0px;
 }
 
+ul {
+	margin:0px;
+	padding:0px;
+}
+
+ul li {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+
+a {
+	text-decoration:none;
+}
+
+/* MAIN NAV */
 #nav_container {
 	position:relative;
 	height:150px;
@@ -50,11 +66,6 @@ body {
 	color:#6B96E4;
 }
 
-#main_nav ul{
-	margin:0;
-	padding:0;
-}
-
 #main_nav ul li{
 	position:relative;
 	top:43px;
@@ -62,16 +73,9 @@ body {
 	display:inline;
 }
 
-#main_nav ul li:hover{
-	background-color:blue;
-	
-}
-
 #main_nav ul li a{
 	font-family:Cabin;
-	text-decoration:none;
 	font-size:24px;
-
 	padding-left:40px;
 	padding-right:40px;
 	padding-top:5px;
@@ -103,6 +107,39 @@ body {
 	left:28%;
 }
 
+/* FOOTER */
+#footer_container {
+	position:absolute;
+	bottom:0px;
+	height:50px;
+	width:100%;
+	background-color:#B5B4B4;
+}
+
+#footer_container ul li{
+	position:relative;
+	display:inline;
+}
+
+#footer_container ul li a{
+	font-family:Cabin;
+	font-size:18px;
+	position:relative;
+	top:12px;
+
+}
+
+footer ul li a:hover{
+	color:#6B96E4;
+}
+
+#privacy_footer {
+	left:5%;
+}
+
+#contact_us_footer {
+	left:8%;
+}
 
 
 
