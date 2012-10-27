@@ -4,6 +4,7 @@ Nubhub::Application.routes.draw do
   root to: 'pages#landing'
   resources :pages
   resources :users
+  resources :notes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
