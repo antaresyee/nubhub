@@ -1,7 +1,9 @@
 <header>
 <div id="nav_container">
 
-  <img id="template_logo" src="/assets/nubhub_cloud_logo.png" width="150" height="50">
+  <%= link_to image_tag("nubhub_cloud_logo.png", width: 150,
+    heigth: 50, id: "template_logo"), current_user %>
+
 
   <% if !user_signed_in? %>
   <p id="template_login_logout_link">

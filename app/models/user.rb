@@ -9,5 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@duke\.edu\z/
+
   validates :name, presence: true
+  validates :email, presence: true, 
+  	format: { with: VALID_EMAIL_REGEX }
 end
