@@ -48,7 +48,7 @@ Nubhub::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
+  # Disable delPivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
@@ -65,6 +65,20 @@ Nubhub::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.log_level = :debug
+  
+  config.action_mailer.raise_delivery_errors = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true 
   config.action_mailer.default_url_options = { :host => "immense-basin-2703.herokuapp.com" }
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "mail.google.com",
+    :user_name => "noteflote@gmail.com",
+    :password => "dukefluke",
+    :authentication => :plain,
+    :enable_starttls_auto => true 
+  }
+
 end
