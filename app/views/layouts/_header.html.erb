@@ -17,7 +17,13 @@
 
   <nav id="main_nav">
    <ul>
-    <li id="my_notes_nav"><a href="landing.html">My Notes</a></li>
+    <li id="my_notes_nav">
+      <% if user_signed_in? %>
+       <%= link_to "My Notes", current_user %>
+      <% else %>
+        <%= link_to "My Notes", root_path %>
+      <% end %> 
+    </li>
     <li id="my_notes_nav">
       <%= link_to "Browse Courses", courses_path %>
     </li>

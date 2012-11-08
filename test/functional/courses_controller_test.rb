@@ -1,13 +1,18 @@
 require 'test_helper'
 
 class CoursesControllerTest < ActionController::TestCase
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+
   test "should get index" do
     get :index
     assert_response :success
   end
 
-  test "should get show" do
-    get :show
+  test "should get results" do
+    get :results
     assert_response :success
   end
 

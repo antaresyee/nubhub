@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  enrollment: 1
+  capacity: 1
+  waitlist_capacity: 1
+  waitlist_enrollment: 1
+  class_number: 1
+  description: MyText
+  synopsis: MyText
+  name: MyString
+  list_description: MyString
+  campus: MyString
+  career: MyString
+  grading: MyString
+  location: MyString
+  units: 9.99
+  room: MyString
+  required_sections: MyString
+
+two:
+  course_id: 1
+  enrollment: 1
+  capacity: 1
+  waitlist_capacity: 1
+  waitlist_enrollment: 1
+  class_number: 1
+  description: MyText
+  synopsis: MyText
+  name: MyString
+  list_description: MyString
+  campus: MyString
+  career: MyString
+  grading: MyString
+  location: MyString
+  units: 9.99
+  room: MyString
+  required_sections: MyString

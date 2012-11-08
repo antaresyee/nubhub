@@ -1,11 +1,26 @@
 Nubhub::Application.routes.draw do
 
-  devise_for :users
   root to: 'pages#landing'
-  resources :pages
+
+  get 'pages/home'
+  get 'pages/about'
+  get 'pages/help'
+
+
+  match '/search_results', to: 'searches#results'
+  match '/courses/results', to: 'courses#results'
+  match '/instructors/results', to: 'instructors#results' 
+  match '/subjects/results', to: 'subjects#results'
+  match '/subjects/instructors', to: 'subjects#show_instructors'
+  match '/subjects/courses', to: 'subjects#show_courses'
+
+  devise_for :users
+
   resources :users
   resources :notes
-  resources :courses
+  resources :courses, only: [:index, :show]
+  resources :instructors, only: [:index, :show]
+  resources :subjects, only: [:show, :index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

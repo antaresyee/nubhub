@@ -1,0 +1,17 @@
+<%= render	partial:"partials/breadcrumbs", 
+			locals:{
+				breadCrumbHash:{
+					"Home"=>root_path, 
+					"Professors"=>instructors_path, 
+					"Results"=>'#'}
+				} %>
+
+<div class="page-header"><h1>Professor Search Results</h1></div>
+<%= render	partial:"partials/search_bar/search_bar", 
+			locals:{
+				redirect:instructors_results_path, 
+				help_text:instructor_search_help_text
+			} %>
+
+<%= render @instructors %>
+

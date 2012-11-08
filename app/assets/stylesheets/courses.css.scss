@@ -1,3 +1,19 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$mygray: #B5B4B4;
+
+td {
+	color: $mygray;	
+}
+
+.instructor_link {
+	color: $mygray;
+}
+
+div.pagination {
+	.disabled {
+		color:red;
+	}	
+}
