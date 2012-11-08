@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, 
   	format: { with: VALID_EMAIL_REGEX } 
   	
+  has_many :notes, dependent: :destroy
+
 end
