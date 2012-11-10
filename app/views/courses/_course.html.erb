@@ -1,9 +1,38 @@
 <div class = "list_courses offset1">
     
     <h3 class="list_course_title course_link"><%= link_to courseToString(course), course_path(course)  %>
-        <button type="button" class="btn btn-success btn-follow-course" data-toggle="button">
-            Follow 
-        </button>
+
+        <% if current_page?(current_user) || (current_user.courses.include?(course))  %>
+            <%= button_to "Unfollow", 
+                {
+                    controller: :note_booked_relationships,
+                    id: params[:id],
+                    action: :destroy,
+                    user: current_user,
+                    course: course        
+                }, {
+                    class: "btn btn-warning btn-unfollow-course"
+                }
+            %>
+        <% else %>
+            <%= button_to "Follow", 
+                {
+                    controller: :note_booked_relationships,
+                    action: :create,
+                    user: current_user,
+                    course: course
+                }, {
+                    class: "btn btn-success btn-follow-course"
+                }
+            %>
+        <% end %> 
+        <!--
+        <form action=new_notebookedrelationship_path>
+            <button type="submit" class="btn btn-success btn-follow-course" data-toggle="button">
+                Follow 
+            </button>
+        </form>
+    -->
     </h3>
     
     <div class="list_course_content">

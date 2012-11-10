@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
   
-  attr_accessible :name, :new_number, :old_numbero
+  attr_accessible :name, :new_number, :old_number
 
   validates :name,  :presence => true
   has_many :prerequisite_relations, :foreign_key => "course_id", :class_name=>"PrerequisiteRelation"
@@ -12,6 +12,9 @@ class Course < ActiveRecord::Base
 
   belongs_to :session, :inverse_of => :courses
   belongs_to :subject
+
+  has_many :note_booked_relationships
+  has_many :users, through: :note_booked_relationships
 
 
   def toSingleCode

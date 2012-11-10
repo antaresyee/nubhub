@@ -6,5 +6,6 @@ class UsersController < ApplicationController
 	def show
 		@user = current_user
 		@notes = @user.notes.paginate(page: params[:page])
+		@bookedCourses = @user.courses
 	end
 end

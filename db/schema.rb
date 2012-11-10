@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107002521) do
+ActiveRecord::Schema.define(:version => 20121108234338) do
 
   create_table "areas_of_knowledges_courses", :id => false, :force => true do |t|
     t.integer "course_id"
@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(:version => 20121107002521) do
     t.integer "section_id"
   end
 
+  create_table "note_booked_relationships", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "course_id"
+  end
+
   create_table "notes", :force => true do |t|
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
@@ -108,8 +115,9 @@ ActiveRecord::Schema.define(:version => 20121107002521) do
 
   create_table "sections", :force => true do |t|
     t.integer  "course_id"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
+    t.integer  "time_slot_id"
     t.integer  "enrollment"
     t.integer  "capacity"
     t.integer  "waitlist_capacity"
@@ -119,11 +127,13 @@ ActiveRecord::Schema.define(:version => 20121107002521) do
     t.text     "synopsis"
     t.string   "name"
     t.string   "list_description"
+    t.string   "topic"
     t.string   "campus"
+    t.string   "enrollment_requirements"
     t.string   "career"
     t.string   "grading"
     t.string   "location"
-    t.decimal  "units",               :precision => 10, :scale => 0
+    t.decimal  "units",                   :precision => 10, :scale => 0
     t.string   "room"
     t.string   "required_sections"
   end
@@ -151,9 +161,10 @@ ActiveRecord::Schema.define(:version => 20121107002521) do
   create_table "time_periods", :force => true do |t|
     t.time     "start_time"
     t.time     "end_time"
+    t.integer  "time_slot_id"
     t.integer  "day"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "time_slots", :force => true do |t|
