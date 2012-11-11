@@ -14,5 +14,9 @@
 	<%= render @notes %>
 	</ol>
 	<%= will_paginate @notes %>
-<br/>
+	<br/>
+<% end %>
+
+<% if @user.courses.any? %>
+	<%= render @bookedCourses %>	
 <% end %>

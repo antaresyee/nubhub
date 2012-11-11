@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  abbr: MyString
+  name: MyString
+  scrape_value: MyString
+
+two:
+  abbr: MyString
+  name: MyString
+  scrape_value: MyString

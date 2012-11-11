@@ -1,0 +1,23 @@
+<h1>Courses#results</h1>
+<p>Find me in app/views/courses/results.html.erb</p>
+
+<%= render 	partial:"partials/breadcrumbs", 
+			locals:{
+				breadCrumbHash:{
+					"Home"=>root_path, 
+					"Courses"=>courses_path, 
+					"Results"=>"#"}
+				} %>
+
+<div class="page-header">
+	<h1 class="offset1">Course Search Results</h1>
+</div>
+<div class="offset1">
+<%= render 	partial:"partials/search_bar", 
+			locals:{
+				redirect:courses_results_path, 
+				help_text:course_search_help_text, 
+			} %>
+
+<%= render @courses %>
+</div>

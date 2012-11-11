@@ -1,0 +1,13 @@
+
+<%= render	partial:"partials/breadcrumbs", 
+			locals:{
+				breadCrumbHash:{
+					"Home"=>root_path, 
+					"Professors"=>instructors_path, 
+					@subject.abbr => '#'}
+				} %>
+
+<div class="page-header">
+<h1 class="offset1"><%= (@subject.name)+" ("+@subject.abbr+")"%></h1>
+</div>
+<%= render @instructors %>

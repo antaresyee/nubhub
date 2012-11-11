@@ -11,20 +11,69 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107002521) do
+ActiveRecord::Schema.define(:version => 20121108234338) do
 
-  create_table "courses", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "cid"
-    t.integer  "year"
-    t.string   "term"
-    t.string   "department"
-    t.integer  "number"
-    t.string   "name"
+  create_table "areas_of_knowledges_courses", :id => false, :force => true do |t|
+    t.integer "course_id"
+    t.integer "areas_of_knowledge_id"
   end
 
-  add_index "courses", ["cid"], :name => "index_courses_on_cid"
+  create_table "course_attributes", :force => true do |t|
+    t.string   "name"
+    t.string   "abbr"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "scrape_value"
+  end
+
+  create_table "course_attributes_sections", :id => false, :force => true do |t|
+    t.integer "course_attribute_id"
+    t.integer "section_id"
+  end
+
+  create_table "course_numberings", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "new_number"
+    t.string   "old_number"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "session_id"
+    t.string   "old_number"
+    t.string   "new_number"
+    t.integer  "subject_id"
+  end
+
+  create_table "courses_modes_of_inquiries", :id => false, :force => true do |t|
+    t.integer "course_id"
+    t.integer "modes_of_inquiry_id"
+  end
+
+  create_table "instructors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "instructors", ["name"], :name => "index_instructors_on_name", :unique => true
+
+  create_table "instructors_sections", :id => false, :force => true do |t|
+    t.integer "instructor_id"
+    t.integer "section_id"
+  end
+
+  create_table "note_booked_relationships", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "course_id"
+  end
 
   create_table "notes", :force => true do |t|
     t.datetime "created_at",                 :null => false
@@ -32,6 +81,96 @@ ActiveRecord::Schema.define(:version => 20121107002521) do
     t.string   "content",    :default => "", :null => false
     t.integer  "user_id",    :default => -1, :null => false
     t.string   "file"
+  end
+
+  create_table "prerequisite_relations", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "prerequisite_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "assignment_easiness"
+    t.integer  "test_easiness"
+    t.integer  "helpfulness"
+    t.integer  "clarity"
+    t.integer  "enthusiasm"
+    t.integer  "course_content"
+    t.integer  "textbook_usefulness"
+    t.text     "review_content"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "course_id"
+    t.integer  "instructor_id"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "role"
+    t.integer  "instructor_id"
+    t.integer  "course_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.integer  "course_id"
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
+    t.integer  "time_slot_id"
+    t.integer  "enrollment"
+    t.integer  "capacity"
+    t.integer  "waitlist_capacity"
+    t.integer  "waitlist_enrollment"
+    t.integer  "class_number"
+    t.text     "description"
+    t.text     "synopsis"
+    t.string   "name"
+    t.string   "list_description"
+    t.string   "topic"
+    t.string   "campus"
+    t.string   "enrollment_requirements"
+    t.string   "career"
+    t.string   "grading"
+    t.string   "location"
+    t.decimal  "units",                   :precision => 10, :scale => 0
+    t.string   "room"
+    t.string   "required_sections"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.string   "season"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["name"], :name => "index_sessions_on_name", :unique => true
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
+    t.string   "abbr"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "alias"
+  end
+
+  add_index "subjects", ["abbr"], :name => "index_subjects_on_abbr", :unique => true
+
+  create_table "time_periods", :force => true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "time_slot_id"
+    t.integer  "day"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "time_slots", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "aces_value"
   end
 
   create_table "users", :force => true do |t|

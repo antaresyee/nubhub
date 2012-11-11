@@ -1,24 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'devise'
-gem 'bootstrap-sass'
-gem 'carrierwave'
-gem 'valid_email'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-    gem 'sqlite3', '1.3.6'
 end
 
 group :production do
-    gem 'pg', '0.12.2'
 end
 
 
@@ -36,6 +25,22 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'carrierwave'
+gem 'valid_email'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'mysql2'
+gem 'progress_bar'
+
+gem 'therubyracer'
+gem 'less-rails'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
          :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name
+  attr_accessible :name, 
+                  :email, 
+                  :password, 
+                  :password_confirmation, 
+                  :remember_me
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@duke\.edu\z/
 
@@ -16,6 +19,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, 
   	format: { with: VALID_EMAIL_REGEX } 
   	
+  has_many :note_booked_relationships
   has_many :notes, dependent: :destroy
-
+  has_many :courses, through: :note_booked_relationships
 end
