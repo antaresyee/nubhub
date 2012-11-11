@@ -5,9 +5,9 @@
   <head>
     <title>Nubhub</title>
     <link rel="stylesheet" href="template.css"/>
+    <link rel="stylesheet" href="browse_notes_1.css" />
     <link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
   </head>
-  
   <body>
     <div id="nav_container">
       
@@ -24,14 +24,40 @@
   			</ul>
   		</nav>
     </div>
-  </div>
 
-  <div id="footer_container">
+
+<!--start content-->
+	<div id="enter_your_school" class="form_div">
+		<p class="form_div_text">Enter Your School</p>
+		<form id="enter_your_school_form">
+			<input id="enter_your_school_input" type="text" name="school">
+		</form>
+	</div>
+
+	<div id="enter_a_class" class="form_div">
+		<p class="form_div_text">Enter A Class</p>
+		<form id="enter_a_class_form">
+			<input id="enter_a_class_input" type="text" name="class">
+		</form>
+		</br><p class="form_div_text">---OR---</p>
+		<a href="./browse_notes_1.html" id="browse_notes_button">
+			<div id="browse_notes_button_container">
+				<p id="browse_notes_button_text">Browse Notes</p>
+			</div>
+		</a>
+	</div>
+	<div class="clear_bottom"></div>
+
+<!--end content-->
+
+    <div id="footer_container">
       <footer>
         <ul>
           <li id="privacy_footer"><a href="landing.html">Privacy</a></li>
           <li id="contact_us_footer"><a>Contact Us</a></li> 
         </ul>
       </footer>
+    </div>
+
   </body>
 </html>
