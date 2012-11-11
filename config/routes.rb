@@ -5,6 +5,7 @@ Nubhub::Application.routes.draw do
   resources :pages
   resources :users
   resources :notes
+  resources :courses
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

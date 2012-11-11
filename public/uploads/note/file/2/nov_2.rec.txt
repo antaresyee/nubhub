@@ -1,0 +1,13 @@
+what exactly does open return/do?
+    a file descriptor
+metadata about file 
+    where file is stored and how big is it?
+In metadata
+    size of blocks and pointer to first block
+fd is pointer to the metadata
+fast file system
+    tree structure
+    multi level block
+    like inodes
+
+

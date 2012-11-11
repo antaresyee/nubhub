@@ -11,8 +11,7 @@ class NotesController < ApplicationController
   end
 
   def create
-  	@note = Note.new(user_id: current_user.id, 
-  		file: params[:note][:file])
+  	@note = current_user.notes.build(file: params[:note][:file])
   	if @note.save
   		flash[:success] = "Note uploaded."
   		redirect_to current_user

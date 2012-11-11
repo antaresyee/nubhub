@@ -5,6 +5,10 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'valid_email'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
