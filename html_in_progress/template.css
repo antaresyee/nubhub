@@ -36,16 +36,19 @@
 
 body { 
 	position:relative;
-	background-color:#6B96E4; 
+	background-color:#1c54bd; 
 	margin:0px;
-	padding-bottom:50px;
 }
 
 input {
     color:#000000;
-    border-radius:5px; 
-    -moz-border-radius:5px; 
-    -webkit-border-radius:5px;
+    border:0px;
+    border-radius:3px; 
+    -moz-border-radius:3px; 
+    -webkit-border-radius:3px;
+    padding:5px;
+    margin-bottom:13px;
+    width:90%;
 }
 
 input:focus {
@@ -67,9 +70,31 @@ a {
 	text-decoration:none;
 }
 
+.button {
+	height:30px;
+	width:80px;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	font-family:proxima_nova;
+	font-size:14px;
+	color:#FFFFFF;
+	background-color:#b5b4b4;
+}
+
+.button:hover {
+	font-family:proxima_nova;
+	font-size:14px;
+	color:#FFFFFF;
+	background-color:#a19f9f;
+}
+
 /* used to put space between last element and footer */
 .clear_bottom {
-	height:50px;
+	height:150px;
 }
 
 /* MAIN NAV */
