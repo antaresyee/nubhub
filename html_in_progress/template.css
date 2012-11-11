@@ -1,8 +1,21 @@
-
-
 /*
 @author antaresyee
 */
+
+@font-face {
+	font-family:proxima_nova;
+	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
+}
+
+@font-face {
+	font-family:vag_rounded;
+	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
+}
+
+@font-face {
+	font-family:gotham_bold;
+	src:url("../app/assets/fonts/Gotham-Bold.otf");
+}
 
 @font-face {
 	font-family:proxima_nova;
@@ -22,8 +35,21 @@
 }
 
 body { 
+	position:relative;
 	background-color:#6B96E4; 
 	margin:0px;
+	padding-bottom:50px;
+}
+
+input {
+    color:#000000;
+    border-radius:5px; 
+    -moz-border-radius:5px; 
+    -webkit-border-radius:5px;
+}
+
+input:focus {
+	outline-width:0;
 }
 
 ul {
@@ -39,6 +65,11 @@ ul li {
 
 a {
 	text-decoration:none;
+}
+
+/* used to put space between last element and footer */
+.clear_bottom {
+	height:50px;
 }
 
 /* MAIN NAV */
