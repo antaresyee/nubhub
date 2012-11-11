@@ -30,7 +30,7 @@ body {
 
 /* ENTER YOUR SCHOOL DIV */
 #enter_your_school {
-  height:260px;
+  height:320px;
   width:600px;
   top:100px;
   margin-bottom:100px;
@@ -38,31 +38,11 @@ body {
 
 #enter_your_school_form {
   position:relative;
-  top:70px;
+  top:50px;
   width:100%;
 }
 
 #enter_your_school_input {
-  display:block;
-  width:50%;
-  margin:0 auto;
-}
-
-/* ENTER A CLASS DIV */
-#enter_a_class {
-  height:400px;
-  width:600px;
-  top:100px;
-  margin-bottom:100px;
-}
-
-#enter_a_class_form {
-  position:relative;
-  top:70px;
-  width:100%;
-}
-
-#enter_a_class_input {
   display:block;
   width:50%;
   margin:0 auto;
@@ -78,7 +58,7 @@ body {
   margin:0 auto;
   height:40px;
   width:200px;
-  top:50px;
+  top:80px;
   background-color:#b5b4b4;
   font-family:gotham_bold;
   border-radius:4px; 
@@ -92,6 +72,4 @@ body {
   top:10px;
   font-size:24px;
 }
-
-
 
