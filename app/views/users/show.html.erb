@@ -11,7 +11,10 @@
 <% if @user.notes.any? %>
 	<p>Your <%= @user.notes.count %> Notes:</p>
 	<ol class="nublist">
-	<%= render @notes %>
+	<% @notes.each do |note| %>
+		<%=  link_to note.file, note.file.to_s %>
+		<br />
+	<% end %>
 	</ol>
 	<%= will_paginate @notes %>
 	<br/>
