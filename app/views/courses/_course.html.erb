@@ -1,8 +1,11 @@
+
+<div class="test">
+</div>
 <div class = "list_courses offset1">
     
     <h3 class="list_course_title course_link"><%= link_to courseToString(course), course_path(course)  %>
 
-        <% if current_page?(current_user) || (current_user.courses.include?(course))  %>
+        <% if current_page?(current_user) && (current_user.courses.include?(course))  %>
             <%= button_to "Unfollow", 
                 {
                     controller: :note_booked_relationships,
@@ -11,7 +14,8 @@
                     user: current_user,
                     course: course        
                 }, {
-                    class: "btn btn-warning btn-unfollow-course"
+                    class: "btn btn-warning btn-unfollow-course",
+                    remote: true
                 }
             %>
         <% else %>
@@ -22,7 +26,8 @@
                     user: current_user,
                     course: course
                 }, {
-                    class: "btn btn-success btn-follow-course"
+                    class: "btn btn-success btn-follow-course",
+                    remote: true
                 }
             %>
         <% end %> 

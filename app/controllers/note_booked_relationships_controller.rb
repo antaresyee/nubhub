@@ -10,7 +10,7 @@ class NoteBookedRelationshipsController < ApplicationController
       end
       respond_to do |format|
         flash[:success] = "Deleted"
-        format.html { redirect_to :back} 
+        format.html { redirect_to subject_url} 
         format.js
       end
     end
@@ -25,7 +25,7 @@ class NoteBookedRelationshipsController < ApplicationController
       end
       respond_to do |format|
         flash[:success] = "HELLO OKAY"
-        format.html { redirect_to :back} 
+        format.html { redirect_to subject_url} 
         format.js
       end
     end
