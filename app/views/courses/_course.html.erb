@@ -5,29 +5,44 @@
     
     <h3 class="list_course_title course_link"><%= link_to courseToString(course), course_path(course)  %>
 
-        <% if current_page?(current_user) && (current_user.courses.include?(course))  %>
+        <% if current_page?(current_user) || (current_user.courses.include?(course))  %>
+
             <%= button_to "Unfollow", 
                 {
                     controller: :note_booked_relationships,
+                    action: 'destroy',
                     id: params[:id],
-                    action: :destroy,
                     user: current_user,
                     course: course        
                 }, {
+                    method: :delete,
                     class: "btn btn-warning btn-unfollow-course",
                     remote: true
                 }
             %>
         <% else %>
+            <%= form_tag(
+                url_for(
+                controller: :note_booked_relationships,
+                user: current_user,
+                course: course,
+                action: 'create',
+                method: :post),
+                remote: true
+            ) do %>
+                <%= submit_tag(
+                    "Follow", 
+                    class: "btn btn-success btn-follow-course"
+                ) %>
+
+            <% end %> 
+
             <%= button_to "Follow", 
                 {
                     controller: :note_booked_relationships,
-                    action: :create,
-                    user: current_user,
-                    course: course
+                    action: 'create'
                 }, {
                     class: "btn btn-success btn-follow-course",
-                    remote: true
                 }
             %>
         <% end %> 

@@ -35,21 +35,3 @@ jQuery ->
 			$(this).addClass("btn-warning")
 			$(this).addClass("btn-unfollow-course")
 
-jQuery ->
-		$(".test").html("HELLOOOOO")
-		button = $(".btn-follow-course")
-		$(button).parent().parent().attr("method", "delete")
-		$(button).removeClass("btn-warning")
-		$(button).removeClass("btn-unfollow-course")
-		$(button).parent().parent().attr("method", "post")
-		$(button).attr("value", "Follow")
-		$(button).addClass("btn-success")
-		$(button).addClass("btn-follow-course")
-		button = $(".btn-unfollow-course")
-		$(button).removeClass("btn-success")
-		$(button).removeClass("btn-follow-course")
-		$(button).parent().parent().attr("method", "delete")
-		$(button).attr("value", "Unfollow");
-		$(button).addClass("btn-warning")
-		$(button).addClass("btn-unfollow-course")
-

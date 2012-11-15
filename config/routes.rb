@@ -1,5 +1,7 @@
 Nubhub::Application.routes.draw do
 
+  get "test/new"
+
   root to: 'pages#landing'
 
   get 'pages/home'
@@ -21,7 +23,7 @@ Nubhub::Application.routes.draw do
   resources :courses, only: [:index, :show]
   resources :instructors, only: [:index, :show]
   resources :subjects, only: [:show, :index]
-  resources :note_booked_relationships
+  resources :note_booked_relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
