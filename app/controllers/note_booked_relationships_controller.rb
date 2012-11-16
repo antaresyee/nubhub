@@ -8,11 +8,6 @@ class NoteBookedRelationshipsController < ApplicationController
         @course = @user.courses.find(params[:course])
         @user.courses.delete(@course)
       end
-      respond_to do |format|
-        flash[:success] = "Deleted"
-        format.html { redirect_to subject_url } 
-        format.js
-      end
     end
   end
 
@@ -23,10 +18,6 @@ class NoteBookedRelationshipsController < ApplicationController
       if !@user.courses.include?(@course)
         @user.courses << @course
         flash[:success] =  "Added course"
-      end
-      respond_to do |format|
-        format.html { redirect_to :back } 
-        format.js
       end
     end
   end

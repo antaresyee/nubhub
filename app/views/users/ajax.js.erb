@@ -1,0 +1,5 @@
+$(".test").html("<%= courseToStringNoSpc(@course) %>");
+$("#courseDisplay-<%= courseToStringNoSpc(@course) %>").slideUp("slow", 
+		function() {
+			$(this).remove();
+		});

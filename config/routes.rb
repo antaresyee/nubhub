@@ -15,7 +15,7 @@ Nubhub::Application.routes.draw do
   match '/subjects/results', to: 'subjects#results'
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
-
+  match '/users/ajax', to: 'users#ajax', via: :get
   devise_for :users
 
   resources :users

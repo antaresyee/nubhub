@@ -21,5 +21,9 @@
 <% end %>
 
 <% if @user.courses.any? %>
-	<%= render @bookedCourses %>	
+	<% @user.courses.each do |course| %>
+		<div id="courseDisplay-<%= courseToStringNoSpc(course) %>">
+			<%= render course %>
+		</div>
+	<% end %>
 <% end %>
