@@ -16,6 +16,7 @@ Nubhub::Application.routes.draw do
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
   match '/users/ajax', to: 'users#ajax', via: :get
+  match '/browser/ajax', to: 'browser#ajax', via: :get
   devise_for :users
 
   resources :users
@@ -24,6 +25,7 @@ Nubhub::Application.routes.draw do
   resources :instructors, only: [:index, :show]
   resources :subjects, only: [:show, :index]
   resources :note_booked_relationships, only: [:create, :destroy]
+  resources :browser
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

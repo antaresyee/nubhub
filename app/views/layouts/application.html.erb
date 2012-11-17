@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Welcome to Nubhub</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag	"http://fonts.googleapis.com/css?family=Cabin:700" %>
   <%= javascript_include_tag "application" %>
+
+<%= javascript_include_tag "http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/jquery.history.js" %>
   <%= csrf_meta_tags %>
- <%= render 'layouts/shim' %>
+ <%= render 'partials/shim' %>
  <%= yield :specific_assets %>
 </head>
+
+<div class="test">
+</div>
+
+
 <% if !current_page?('/') %>
-<%= render 'layouts/header' %>
+<%= render 'partials/header' %>
 <% end %>
 <% flash.each do |name, msg| %>
 <%= content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String) %>
@@ -20,6 +28,6 @@
 	<%= yield %>
 </body>
 <% if !current_page?('/') %>
-	<%= render 'layouts/footer' %>
+	<%= render 'partials/footer' %>
 <% end %>
 </html>

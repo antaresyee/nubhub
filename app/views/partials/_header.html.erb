@@ -1,0 +1,38 @@
+<header>
+<div id="nav_container">
+
+  <%= link_to image_tag("nubhub_cloud_logo.png", width: 150,
+    heigth: 50, id: "template_logo"), current_user %>
+
+
+  <% if !user_signed_in? %>
+  <p id="template_login_logout_link">
+    <%= link_to('Login', new_user_session_path) %>
+  </p>
+  <% else %>
+  <p id="template_login_logout_link">
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </p>
+  <% end %>
+
+  <nav id="main_nav">
+   <ul>
+    <li id="my_notes_nav">
+      <% if user_signed_in? %>
+       <%= link_to "My Notes", current_user %>
+      <% else %>
+        <%= link_to "My Notes", root_path %>
+      <% end %> 
+    </li>
+    <li id="my_notes_nav">
+      <%= link_to "Browse", browser_index_path %>
+    </li>
+    <li id="browse_notes_nav">
+      <%= link_to "Browse Notes", notes_path %>
+    </li> 
+    <li id="how_it_works_nav"><a>How it Works</a></li>
+    <li id="contact_us_nav"><a>Contact Us</a></li>
+  </ul>
+</nav>
+</div>
+</header>

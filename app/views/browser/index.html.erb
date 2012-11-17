@@ -1,0 +1,37 @@
+<div class="row-fluid">
+	<div class="span12">
+		<%= render 	partial:"partials/breadcrumbs", 
+				locals:{
+					breadCrumbHash:{
+						"Home" => root_path, 
+						"Browse" => browser_index_path}
+					} %>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="brand">
+					Browse: 
+				</div>
+				<ul class="nav">
+					<li class="active">
+						<%= link_to "Subjects", "#" %>
+					</li>
+					<li>
+						<%= link_to "Notes", browser_ajax_path, remote: true %>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="slider">
+	<%= render "courses/index" %>
+</div>
+<!--
+-->
+
+
