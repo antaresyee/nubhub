@@ -1,0 +1,121 @@
+<!--@author antaresyee-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nubhub</title>
+    <link rel="stylesheet" href="template.css"/>
+    <link rel="Stylesheet" href="browse_notes_2.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="nav_container">
+      
+      <img id="template_logo" src="../app/assets/images/nubhub_cloud_logo.png" width="150" height="50">
+
+      <p id="template_login_logout_link"><a>login</a></p>
+
+      <nav id="main_nav">
+        <ul>
+          <li id="my_notes_nav"><a href="landing.html">My Notes</a></li>
+          <li id="browse_notes_nav"><a>Browse Notes</a></li> 
+          <li id="how_it_works_nav"><a>How it Works</a></li>
+          <li id="contact_us_nav"><a>Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+
+<!--start content-->
+  <div id="breadcrumb_container">
+    <a id="university" class="breadcrumbs">Duke University</a>
+    <p id="first_slash"> / </p>
+    <a id="department" class="breadcrumbs">Computer Science</a>
+    <p id="second_slash"> / </p>
+    <a id="course" class="breadcrumbs">308</a>
+  </div>
+
+    <div class="content_container" id="departments_container">
+    <div class="content_header" id="departments_header">
+      <p id="departments_name">department</p>
+    </div>
+    <div class="content_box" id="departments_box">
+      <div class="note_line">
+        <ul>
+          <li class="departments_line_name"><a>Computer Science</a></li>
+        </ul>
+        <img class="department_icon" src="../app/assets/images/course_icon.jpg" height="19" width="15"/>
+      </div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+    </div>
+    </div>
+
+    <div class="content_container" id="courses_container">
+    <div class="content_header" id="courses_header">
+      <p id="courses_name">course</p>
+    </div>
+    <div class="content_box" id="courses_box">
+      <div class="note_line">
+        <ul>
+          <li class="courses_line_name"><a>108: Software Design and Implementation</a></li>
+        </ul>
+        <img class="course_icon" src="../app/assets/images/course_icon.jpg" height="19" width="15"/>
+        <img class="plus_icon" src="../app/assets/images/plus_icon_2.jpg" height="15" width="15"/>
+        <img class="x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/>
+      </div>
+      <div class="note_line">
+        <ul>
+          <li class="courses_line_name"><a>110: Operating Systems</a></li>
+        </ul>
+        <img class="course_icon" src="../app/assets/images/course_icon.jpg" height="19" width="15"/>
+        <img class="plus_icon" src="../app/assets/images/plus_icon_2.jpg" height="15" width="15"/>
+        <img class="x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/>
+      </div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+    </div>
+  </div>
+
+  <div class="content_container" id="notes_container">
+    <div class="content_header" id="notes_header">
+      <p id="notes_date">date</p>
+      <p id="notes_author">author</p>
+    </div>
+    <div class="content_box" id="notes_box">
+      <div class="note_line">
+        <ul id="note_line_ul">
+          <li class="note_line_date">2/24/12</li>
+          <li class="note_line_author">antaresyee</li>
+          <li class="note_line_downloads">18</li>
+        </ul>
+        <img class="note_icon" src="../app/assets/images/note_icon.jpg" height="18" width="14"/>
+        <img class="download_icon" src="../app/assets/images/download_icon.jpg" height="20" width="20"/>
+      </div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+      <div class="note_line"></div>
+    </div>
+  </div>
+<!--end content-->
+
+      <div class="clear_bottom"></div>
+    <div id="footer_container">
+      <footer>
+        <ul>
+          <li id="privacy_footer"><a href="landing.html">Privacy</a></li>
+          <li id="contact_us_footer"><a>Contact Us</a></li> 
+        </ul>
+      </footer>
+    </div>
+  
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+  <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
+  <script type="text/javascript" src="browse_notes_2.js"></script>
+
+  </body>
+</html>
