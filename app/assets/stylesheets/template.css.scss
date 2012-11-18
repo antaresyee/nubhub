@@ -12,6 +12,21 @@
 	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
 }
 
+@font-face {
+	font-family:gotham_bold;
+	src:url("../app/assets/fonts/Gotham-Bold.otf");
+}
+
+@font-face {
+	font-family:proxima_nova;
+	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
+}
+
+@font-face {
+	font-family:vag_rounded;
+	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
+}
+
 /* UNIVERSAL STYLING */
 * {
 	font-family:proxima_nova;
@@ -19,13 +34,25 @@
 	color:white;
 }
 
-input {
-	color: black;
+body { 
+	position:relative;
+	background-color:#1c54bd; 
+	margin:0px;
 }
 
-body { 
-	background-color:#6B96E4; 
-	margin:0px;
+input {
+    color:#000000;
+    border:0px;
+    border-radius:3px; 
+    -moz-border-radius:3px; 
+    -webkit-border-radius:3px;
+    padding:5px;
+    margin-bottom:13px;
+    width:90%;
+}
+
+input:focus {
+	outline-width:0;
 }
 
 ul {
@@ -41,6 +68,33 @@ ul li {
 
 a {
 	text-decoration:none;
+}
+
+.button {
+	height:30px;
+	width:80px;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	font-family:proxima_nova;
+	font-size:14px;
+	color:#FFFFFF;
+	background-color:#b5b4b4;
+}
+
+.button:hover {
+	font-family:proxima_nova;
+	font-size:14px;
+	color:#FFFFFF;
+	background-color:#a19f9f;
+}
+
+/* used to put space between last element and footer */
+.clear_bottom {
+	height:150px;
 }
 
 /* MAIN NAV */
@@ -142,6 +196,7 @@ footer ul li a:hover{
 #contact_us_footer {
 	left:8%;
 }
+
 
 
 

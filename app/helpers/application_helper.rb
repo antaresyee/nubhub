@@ -22,6 +22,14 @@ module ApplicationHelper
 		courseToCode(course)+" "+course.name
 	end
 
+	def courseToStringNoSpc(course)
+		ret = ""
+		courseToString(course).delete("-/()").split.each do |str|
+			ret += str
+		end
+		return ret
+	end
+
 	def courseToCode(course)
 		course.subject.abbr+course.new_number+"/"+course.old_number
 	end

@@ -1,5 +1,7 @@
 Nubhub::Application.routes.draw do
 
+  get "test/new"
+
   root to: 'pages#landing'
 
   get 'pages/home'
@@ -13,7 +15,7 @@ Nubhub::Application.routes.draw do
   match '/subjects/results', to: 'subjects#results'
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
-
+  match '/users/ajax', to: 'users#ajax', via: :get
   devise_for :users
 
   resources :users
@@ -21,7 +23,7 @@ Nubhub::Application.routes.draw do
   resources :courses, only: [:index, :show]
   resources :instructors, only: [:index, :show]
   resources :subjects, only: [:show, :index]
-  resources :note_booked_relationships
+  resources :note_booked_relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
