@@ -1,0 +1,68 @@
+clicked = false
+lastVisited = document.createElement("a")
+jQuery ->
+  $('.hashchange li a').click ->
+    clicked = true
+    if $(this).attr("href") == $(lastVisited).attr("href")
+      clicked = false
+    $(lastVisited).attr("href", $(this).attr("href"))
+    $('.test').html('OKAYAJ')
+    hash = location.hash
+    temp = document.createElement("a")
+    $('.hashchange li a').each ->
+      that = $(this)
+      par = that.parent('li')
+      if par.hasClass('active')
+        par.removeClass('active')
+    $(this).parent('li').addClass('active')
+    $(temp).attr("path", $(this).attr("path"))
+
+    $.ajax({
+      type: "GET",
+      url: $(temp).attr("path"),
+      dataType: "html",
+      cache: false
+    }).done (data) ->
+      width = parseInt($('#slider').css('width'));
+
+      transfer = $('<div class="transfer"></div>').css({ 'width': (2 * width) + 'px' });
+      if ($('.transfer').length > 0) 
+        current = $('<div class="current"></div>').css(
+          { 'width': width + 'px', 'left': '0', 'float': 'left' }
+          ).html($('.next').html());
+      else 
+        current = $('<div class="current"></div>').css({ 'width': width + 'px', 'left': '0', 'float': 'left' }).html($('#slider').html());
+      next = $('<div class="next"></div>').css({ 'width': width + 'px', 'left': width + 'px', 'float': 'left' }).html(data);
+      transfer.append(current).append(next);
+      $('#slider').html('').append(transfer);
+      transfer.animate({ 'margin-left': '-' + width + 'px' }, 300);
+
+
+  $(window).hashchange ->
+    if clicked
+      clicked = false
+    else 
+      transfer = $('.transfer')
+      if location.hash 
+        hash = location.hash.replace('#','')
+      else 
+        hash = "courses"
+      $(lastVisited).attr("href", hash)
+      $.ajax({
+        type: "GET",
+        url: hash,
+        dataType: "html",
+        cache: false
+      }).done (data) ->
+        width = parseInt($('#slider').css('width'));
+        transfer = $('<div class="transfer"></div>').css({ 'width': (2 * width) + 'px', 'margin-left': '-' + width + 'px'});
+        if ($('.transfer').length > 0) 
+          current = $('<div class="current"></div>').css(
+            { 'width': width + 'px', 'left': width + 'px', 'float': 'left' }
+            ).html($('.next').html());
+        else 
+          current = $('<div class="current"></div>').css({ 'width': width + 'px', 'left': width + 'px', 'float': 'left' }).html($('#slider').html());
+        next = $('<div class="next"></div>').css({ 'width': width + 'px', 'left': 0, 'float': 'left' }).html(data);
+        transfer.append(next).append(current);
+        $('#slider').html('').append(transfer);
+        transfer.animate({ 'margin-left': 0 }, 300);

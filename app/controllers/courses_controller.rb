@@ -5,6 +5,10 @@ class CoursesController < ApplicationController
 
   def index
     @subjects = Subject.all.sort_by &:abbr
+    respond_to do |format|
+      format.html { render partial: 'courses/index' }
+      format.js
+    end
     #here so the check boxes work
   end
 

@@ -1,6 +1,10 @@
 class NotesController < ApplicationController
   def index
   	@notes = Note.all
+    respond_to do |format|
+      format.html { render partial: "notes/index" }
+      format.js
+    end
   end
 
   def show
