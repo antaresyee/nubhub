@@ -1,7 +1,7 @@
 clicked = false
 lastVisited = document.createElement("a")
 jQuery ->
-  $('.hashchange li a').click ->
+  $('.hashchange a').click ->
     clicked = true
     if $(this).attr("href") == $(lastVisited).attr("href")
       clicked = false
@@ -9,12 +9,6 @@ jQuery ->
     $('.test').html('OKAYAJ')
     hash = location.hash
     temp = document.createElement("a")
-    $('.hashchange li a').each ->
-      that = $(this)
-      par = that.parent('li')
-      if par.hasClass('active')
-        par.removeClass('active')
-    $(this).parent('li').addClass('active')
     $(temp).attr("path", $(this).attr("path"))
 
     $.ajax({
@@ -23,8 +17,11 @@ jQuery ->
       dataType: "html",
       cache: false
     }).done (data) ->
-      width = parseInt($('#slider').css('width'));
-
+      ###
+      width = parseInt($('.span12').css('width'));
+      ###
+      width = parseInt(screen.width);
+      alert(width)
       transfer = $('<div class="transfer"></div>').css({ 'width': (2 * width) + 'px' });
       if ($('.transfer').length > 0) 
         current = $('<div class="current"></div>').css(

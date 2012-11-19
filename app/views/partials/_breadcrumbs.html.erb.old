@@ -1,0 +1,27 @@
+<div class="row-fluid">
+	<div class="span12" id="breadcrumb_container">
+		<ul class="hashchange">
+			<% breadCrumbHash.each_pair do |k,v| %>
+					<%= link_to(k, v, class: "breadcrumbs") %> 
+					<span class="divider">/</span>
+			<% end %>
+			<!--
+			<% count = 0 %>
+			<% breadCrumbHash.each_pair do |k,v| %>
+				<% classId = "" %>
+				<li>
+					<% if v[:class] %>
+						<% classId = v[:class] %>
+					<% end %>
+					<%= link_to(k, v[:path], id: classId, 
+						class: "breadcrumbs" ) %>
+					<% if v[:slash] %>
+						<% slashId = v[:slash] %>
+						<span id='<%= slashId %>'>/</span>
+					<% end %>
+				</li>
+			<% end %>
+		-->
+		</ul>
+	</div>
+</div>

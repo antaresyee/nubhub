@@ -1,9 +1,6 @@
 var allBreadcrumbs = [$("#university"), $("#first_slash"), $("#department"), $("#second_slash"), $("#course")];
 
-$("document").ready(function() {
-	prepareEventHandlers();
-	displayDepartments();	
-});
+$("document").ready(prepareEventHandlers());
 
 function prepareEventHandlers() {
 	//breadcrumbs
@@ -12,7 +9,6 @@ function prepareEventHandlers() {
 	//choose selection from container
 	onChooseCourse();
 	onChooseDepartment();
-
 }
 
 function onClickDepartment() {
@@ -33,6 +29,7 @@ function onChooseCourse() {
 
 function onChooseDepartment() {
 	$(".departments_line_name").click(function(){
+		alert("WORKING");
 		displayCourses($(this));
 	});
 }
@@ -72,9 +69,10 @@ function displayCourses(department_li) {
 
 	//fill container (AJAX)
 	console.log(department_li.text());
+	alert(department_li.attr("id"))
 	$.ajax({
-  		url: "INSERT PATH TO BACKEND SCRIPT HERE",
-  		type: "POST",
+  		url: department_li.attr("id"),
+  		type: "GET",
   		data: {context: department_li.text()}
 	}).done(function(html) {
   		$("#courses_container").append(html);
@@ -95,15 +93,6 @@ function displayDepartments() {
 	$("#notes_container").css("display", "none");
 	$("#courses_container").css("display", "none");
 	$("#departments_container").show('slide', {direction: 'right'}, 300);
-
-	//fill container (AJAX)
-	$.ajax({
-  		url: "INSERT PATH TO BACKEND SCRIPT HERE",
-  		type: "POST"
-	}).done(function(html) {
-  		$("#departments_container").append(html);
-	});
-
 }
 
 function styleBreadcrumb(breadcrumb) {

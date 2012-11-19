@@ -3,6 +3,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     @courses = @subject.courses
     @instructors = @subject.instructors_by_count
+    respond_to do |format|
+      format.html { render partial: 'subjects/show' }
+      format.js
+    end
   end
 
   def index

@@ -1,52 +1,31 @@
+    <%= render  partial:"partials/breadcrumbs", 
+    locals:{
+      breadCrumbHash:{
+        "Home" => root_path, 
+        "Duke University" => browser_index_path}
+      } %>
 
-<div class="row-fluid">
-	<div class="span12">
-		<%= render 	partial:"partials/breadcrumbs", 
-				locals:{
-					breadCrumbHash:{
-						"Home" => root_path, 
-						"Browse" => browser_index_path}
-					} %>
-	</div>
-</div>
-
-<div id="nav">
-	<a href="#test1" class="selected">One</a>
-	<a href="#test2">Two</a>
-	<a href="#test3">Three</a>
-	<a href="#test4">Four</a>
-</div>
-
-
-<div class="row-fluid">
-	<div class="span12">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="brand">
-					Browse: 
-				</div>
-				<ul class="nav hashchange">
-					<li class="active" id="courses">
-						<%= link_to "Courses", 
-							"#courses", {class: 'sliderLink',
-								path: 'courses'} %>
-					</li>
-					<li id="notes">
-						<%= link_to "Notes", 
-							'#notes', {class: 'sliderLink', 
-								path: 'notes'} %>
-
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="slider">
-	<%= render "courses/index" %>
-</div>
-<!--
--->
-
-
+    <div class="span12">
+      <div class="content_container" id="departments_container">
+        <div class="content_header" id="departments_header">
+          <p id="departments_name">department</p>
+        </div>
+        <div id="slider">
+          <% @subjects.each do |sub| %>
+          <div class="note_line">
+            <ul>
+              <li class="departments_line_name hashchange">
+                <%= link_to sub.name, "##{sub.abbr}",
+                  {path: url_for(sub)} %>
+              </li>
+            </ul>
+            <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "department_icon")%>
+          </div>
+          <% end %>
+          <div class="note_line"></div>
+          <div class="note_line"></div>
+          <div class="note_line"></div>
+          <div class="note_line"></div>
+        </div>
+      </div>
+    </div>

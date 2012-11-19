@@ -1,0 +1,19 @@
+      <div class="content_container" id="courses_container">
+        <div class="content_header" id="courses_header">
+          <p id="courses_name">course</p>
+        </div>
+        <div class="content_box" id="courses_box">
+          <% @courses.each do |course| %>
+          <div class="note_line"> 
+            <ul>
+              <li class="courses_line_name">
+                <%= link_to course.name, course %>
+              </li>
+            </ul>
+            <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "course_icon")%>
+            <%= image_tag("plus_icon_2.jpg", width: 15, height: 19, class: "plus_icon")%>
+            <%= image_tag("x_icon.jpg", width: 15, height: 19, class: "x_icon")%>
+          </div>
+          <% end %>
+        </div>
+      </div>
