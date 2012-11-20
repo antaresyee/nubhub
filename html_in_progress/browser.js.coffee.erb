@@ -1,28 +1,28 @@
 clicked = false
 lastVisited = document.createElement("a")
-
 jQuery ->
-  breadcrumbs = [$("#second_slash"), $("#third_slash")]
-  for e in breadcrumbs
-    e.css('display', 'none')
-jQuery ->
-  $('.hashchange').on('click', 'a', ->
+  $('.hashchange a').click ->
+    alert("HELLO")
     clicked = true
     if $(this).attr("href") == $(lastVisited).attr("href")
       clicked = false
     $(lastVisited).attr("href", $(this).attr("href"))
+    console.log("HELLO")
     $('.test').html('OKAYAJ')
     hash = location.hash
     temp = document.createElement("a")
+    console.log("HELLO")
     $(temp).attr("path", $(this).attr("path"))
+    console.log("HELLO")
+    alert($(temp).attr("path"))
     $.ajax({
       type: "GET",
       url: $(temp).attr("path"),
       dataType: "html",
       cache: false
     }).done (data) ->
+      width = parseInt(screen.width);
       slider = $('#slider')
       slider.css("display", "none")
       $('#slider').html('').append(data);
       $('#slider').show('slide', {direction: 'right'}, 300)
-  )

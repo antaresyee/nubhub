@@ -18,6 +18,7 @@ Nubhub::Application.routes.draw do
   match '/users/ajax', to: 'users#ajax', via: :get
   match '/browser/ajax', to: 'browser#ajax', via: :get
   match '/browser/ajax_forward', to: 'browser#ajax_forward', via: :get
+  match '/browser/default', to: 'browser#default', via: :get
   devise_for :users
 
   resources :users

@@ -1,10 +1,14 @@
 <div class="row-fluid">
-	<div class="span12" id="breadcrumb_container">
-		<ul class="hashchange">
-			<% breadCrumbHash.each_pair do |k,v| %>
-					<%= link_to(k, v, class: "breadcrumbs") %> 
-					<span class="divider">/</span>
-			<% end %>
-		</ul>
+	<div class="span12 hashchange" id="breadcrumb_container">
+		<%= link_to "Home", root_path,
+		class: "breadcrumbs" %>
+		<p id="first_slash">/</p>
+		<%= link_to "Duke University", "#",
+			{path: "/browser/default",
+				class: "breadcrumbs"} %>
+		<p id="second_slash">/</p>
+		<a class="breadcrumbs"></a>
+		<p id="third_slash">/</p>
+		<a class="breadcrumbs"></a>
 	</div>
 </div>

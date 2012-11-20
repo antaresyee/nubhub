@@ -28,6 +28,7 @@
 	<%= yield %>
 </body>
 <% if !current_page?('/') %>
+  <div class="blank"></div>
 	<%= render 'partials/footer' %>
 <% end %>
 </html>

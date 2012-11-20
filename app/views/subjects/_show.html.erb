@@ -5,8 +5,8 @@
           <% @courses.each do |course| %>
           <div class="note_line"> 
             <ul>
-              <li class="courses_line_name hashchange">
-                <%= link_to course.name, "##{course.new_number}",
+              <li class="courses_line_name">
+                <%= link_to course.name, "##{@subject.abbr}##{course.new_number}",
                 {path: url_for(course)} %>
               </li>
             </ul>

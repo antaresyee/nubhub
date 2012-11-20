@@ -17,6 +17,15 @@ class BrowserController < ApplicationController
 		end
 	end
 
+	def default
+		@subjects = Subject.all.sort_by &:abbr
+		respond_to do |format|
+			format.html { render partial: 'browser/default' }
+			format.js
+		end
+	end
+
+
 	def ajax_forward
 		respond_to do |format|
 			format.html { redirect_to :back }
