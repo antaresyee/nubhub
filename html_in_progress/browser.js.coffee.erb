@@ -26,3 +26,9 @@ jQuery ->
       slider.css("display", "none")
       $('#slider').html('').append(data);
       $('#slider').show('slide', {direction: 'right'}, 300)
+
+$(window).hashchange ->
+  if clicked
+    clicked = false
+  hash = location.hash
+  alert(hash)
