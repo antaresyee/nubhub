@@ -82,6 +82,7 @@ GEM
     options (2.3.0)
       fattr
     orm_adapter (0.4.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
     progress_bar (0.4.0)
@@ -161,6 +162,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  pg
   progress_bar
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
