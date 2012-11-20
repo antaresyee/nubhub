@@ -25,7 +25,7 @@
 	background-color:#6089d4;
 }
 
-li a:hover{
+.content_container li a:hover{
 	text-decoration:underline;
 }
 
