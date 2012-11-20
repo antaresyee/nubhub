@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
   def show
     @course = Course.find_by_id(params[:id])
+    respond_to do |format|
+      format.html { render partial: 'courses/show' }
+      format.js
+    end
   end
 
   def index

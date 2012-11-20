@@ -2,26 +2,31 @@ clicked = false
 lastVisited = document.createElement("a")
 jQuery ->
   $('.hashchange a').click ->
+    alert("HELLO")
     clicked = true
     if $(this).attr("href") == $(lastVisited).attr("href")
       clicked = false
     $(lastVisited).attr("href", $(this).attr("href"))
+    console.log("HELLO")
     $('.test').html('OKAYAJ')
     hash = location.hash
     temp = document.createElement("a")
+    console.log("HELLO")
     $(temp).attr("path", $(this).attr("path"))
-
+    console.log("HELLO")
+    alert($(temp).attr("path"))
     $.ajax({
       type: "GET",
       url: $(temp).attr("path"),
       dataType: "html",
       cache: false
     }).done (data) ->
-      ###
-      width = parseInt($('.span12').css('width'));
-      ###
       width = parseInt(screen.width);
-      alert(width)
+      slider = $('#slider')
+      slider.css("display", "none")
+      $('#slider').html('').append(data);
+      $('#slider').show('slide', {direction: 'right'}, 300)
+###
       transfer = $('<div class="transfer"></div>').css({ 'width': (2 * width) + 'px' });
       if ($('.transfer').length > 0) 
         current = $('<div class="current"></div>').css(
@@ -29,6 +34,7 @@ jQuery ->
           ).html($('.next').html());
       else 
         current = $('<div class="current"></div>').css({ 'width': width + 'px', 'left': '0', 'float': 'left' }).html($('#slider').html());
+
       next = $('<div class="next"></div>').css({ 'width': width + 'px', 'left': width + 'px', 'float': 'left' }).html(data);
       transfer.append(current).append(next);
       $('#slider').html('').append(transfer);
@@ -63,3 +69,4 @@ jQuery ->
         transfer.append(next).append(current);
         $('#slider').html('').append(transfer);
         transfer.animate({ 'margin-left': 0 }, 300);
+###

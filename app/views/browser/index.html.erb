@@ -5,27 +5,21 @@
         "Duke University" => browser_index_path}
       } %>
 
-    <div class="span12">
-      <div class="content_container" id="departments_container">
-        <div class="content_header" id="departments_header">
-          <p id="departments_name">department</p>
-        </div>
-        <div id="slider">
+      <div class="span12">
+        <div class="content_container" id="slider">
+          <div class="content_header" id="departments_header">
+            <p id="departments_name">department</p>
+          </div>
           <% @subjects.each do |sub| %>
           <div class="note_line">
             <ul>
               <li class="departments_line_name hashchange">
                 <%= link_to sub.name, "##{sub.abbr}",
-                  {path: url_for(sub)} %>
+                {path: url_for(sub)} %>
               </li>
             </ul>
             <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "department_icon")%>
           </div>
           <% end %>
-          <div class="note_line"></div>
-          <div class="note_line"></div>
-          <div class="note_line"></div>
-          <div class="note_line"></div>
         </div>
       </div>
-    </div>
