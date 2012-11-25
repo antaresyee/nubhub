@@ -70,6 +70,7 @@ ul li {
 
 a {
 	text-decoration:none;
+	cursor:pointer;
 }
 
 .button {
@@ -123,7 +124,7 @@ a {
 }
 
 #template_login_logout_link a:hover{
-	color:#6B96E4;
+	color:#A19F9F;
 }
 
 #main_nav ul li{

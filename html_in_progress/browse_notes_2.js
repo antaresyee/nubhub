@@ -12,7 +12,6 @@ function prepareEventHandlers() {
 	//choose selection from container
 	onChooseCourse();
 	onChooseDepartment();
-
 }
 
 function onClickDepartment() {
