@@ -3,8 +3,6 @@ class Course < ActiveRecord::Base
   attr_accessible :name, :new_number, :old_number
 
   validates :name,  :presence => true
-  has_many :prerequisite_relations, :foreign_key => "course_id", :class_name=>"PrerequisiteRelation"
-  has_many :prerequisites, :through => :prerequisite_relations
   belongs_to :advanced_course, :class_name => "Course"
 
   has_many :sections

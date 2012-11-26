@@ -1,19 +1,27 @@
-    <div class="content_header" id="notes_header">
-      <p id="notes_date">date</p>
-      <p id="notes_author">author</p>
-    </div>
-    <div class="content_box" id="notes_box">
-      <div class="note_line">
-        <ul id="note_line_ul">
-          <li class="note_line_date">2/24/12</li>
-          <li class="note_line_author">antaresyee</li>
-          <li class="note_line_downloads">18</li>
-        </ul>
-        <%= image_tag("note_icon.jpg", width: 14, height: 18, class: "note_icon")%>
-        <%= image_tag("download_icon.jpg", width: 20, height: 20, class: "download_icon")%>
-      </div>
-      <div class="note_line"></div>
-      <div class="note_line"></div>
-      <div class="note_line"></div>
-      <div class="note_line"></div>
-    </div>
+<!--
+  -->
+        <div class="content_header" id="courses_header">
+          <p id="courses_name">sections</p>
+        </div>
+      <div class="accordian" id="sections_accordian">
+            <% @sections.each do |section| %>
+          <div class="content_box accordian-group"  id="courses_box">
+              <div class="accordian-heading"> 
+                <ul>
+                  <li class="courses_line_name">
+                    <%= link_to section.name, "#section#{section.name.hash}", {
+                      data: {toggle: 'collapse', parent: '#sections-accordian'},
+                      class: 'accordian-toggle' 
+                    } %>
+                  </li>
+                </ul>
+              </div>
+              <div id="section<%="#{section.name.hash}"%>" class="accordian-body collapse">
+                <div class="accordian-inner">
+                  <%= render partial: 'note' %>
+                </div>
+              </div>
+          </div>
+            <% end %>
+          </div>
+        <%= will_paginate @sections %>

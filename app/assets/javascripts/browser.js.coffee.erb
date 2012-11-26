@@ -1,31 +1,16 @@
-clicked = false
-lastVisited = document.createElement("a")
-states = {}
-breadcrumbBools = []
-lastHash = location.hash
 
 debug = (string) ->
   alert("ALERT: " + string)
 
-countHashes = (string) ->
-  string.split('#').length-1
 
 initBreadcrumbs = ->
   breadcrumbs = [$("#second_slash"), $("#third_slash"), $("#second_breadcrumb"), $("#third_breadcrumb")]
   for e in breadcrumbs
     e.css('display', 'none')
-  breadcrumbBools[0] = true
-  breadcrumbBools[1] = true
-  breadcrumbBools[2] = false
-  breadcrumbBools[3] = false
-
-setStateHash = (hash)->
-  states[hash] = $("#slider").html()
 
 jQuery ->
   initBreadcrumbs()
-  setStateHash("#")
-  setStateHash("")
+
 
 
 addBreadcrumb = (link, abbr) ->
@@ -82,48 +67,7 @@ if history && history.pushState
 
 ###
 jQuery ->
-  $('.hashchange').on('click', 'a', ->
-    clicked = true
-    hrefContent = $(this).attr('href')
-    hashCount = countHashes(hrefContent)
-    isCourse = false
-    if hashCount == 2
-      isCourse = true
-    if hrefContent == $(lastVisited).attr("href")
-      clicked = false
-    $(lastVisited).attr("href", hrefContent)
-    hash = location.hash
-    temp = document.createElement("a")
-    $(temp).attr("path", $(this).attr("path"))
-    $.ajax({
-      type: "GET",
-      url: $(temp).attr("path"),
-      dataType: "html",
-      cache: false
-    }).done (data) ->
-      slider = $('#out_slider')
-      slider.hide()
-      slider.html('').append(data);
-      slider.show('slide', {direction: 'right'}, 300)
-      hrefContent = hrefContent.substr(1) 
-      breadcrumb = '#second_breadcrumb'
-      slash = '#second_slash'
-      breadcrumbBools[2] = true
-      if isCourse
-        breadcrumb = '#third_breadcrumb'
-        slash = '#third_slash'
-        hrefContent = hrefContent.split('#')
-        hrefContent = hrefContent[hrefContent.length-1]
-        breadcrumbBools[3] = true
-      $(breadcrumb).html(hrefContent) 
-      $(slash).show("slow")
-      $(breadcrumb).show("slow")
-      setStateHash(location.hash)
-  )
-
-jQuery ->
   $("#alpha_list").on('click', 'a', ->
-    clicked = true
     hash = location.hash
     temp = document.createElement("a")
     $(temp).attr("path", $(this).attr("path"))
@@ -138,55 +82,4 @@ jQuery ->
       slider.html("").append(data);
       slider.show('slide', {direction: 'right'}, 300)
   )
-
-
-backButtonPressed = ->
-  lastHashCount = countHashes(lastHash)
-  currentHashCount = countHashes(location.hash)
-  if lastHashCount > currentHashCount
-    return true
-  else 
-    return false
-
-updateBreadcrumbsOnBackOrForwardButton = ->
-  breadcrumb = ""
-  slash = ""
-  crumbIndex = -1
-  if backButtonPressed()
-    if breadcrumbBools[2] && breadcrumbBools[3]
-      breadcrumb = "#third_breadcrumb"
-      slash = "#third_slash"
-      crumbIndex = 3
-    else if breadcrumbBools[2] && !breadcrumbBools[3]
-      breadcrumb = "#second_breadcrumb"
-      slash = "#second_slash"
-      crumbIndex = 2
-    $(breadcrumb).hide("slow")
-    $(slash).hide('slow')
-    breadcrumbBools[crumbIndex] = false
-  else 
-    if !breadcrumbBools[2]
-      breadcrumb = "#second_breadcrumb"
-      slash = "#second_slash"
-      crumbIndex = 2
-    else if breadcrumbBools[2] && !breadcrumbBools[3]
-      breadcrumb = "#third_breadcrumb"
-      slash = "#third_slash"
-      crumbIndex = 3
-    $(breadcrumb).show("slow")
-    $(slash).show('slow')
-    breadcrumbBools[crumbIndex] = true
-
-
-jQuery ->
-  $(window).hashchange ->
-    if clicked
-      clicked = false
-    else 
-      updateBreadcrumbsOnBackOrForwardButton()
-      slider = $('#out_slider')
-      slider.hide()
-      slider.html('').append(states[location.hash]);
-      slider.show('slide', {direction: 'left'}, 300)
-    lastHash = location.hash
 ###

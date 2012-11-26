@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  
   def show
     @subject = Subject.find(params[:id])
     @courses = @subject.courses.paginate(per_page: 10, page: params[:page])
