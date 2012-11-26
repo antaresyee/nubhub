@@ -15,10 +15,6 @@ Nubhub::Application.routes.draw do
   match '/subjects/results', to: 'subjects#results'
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
-  match '/users/ajax', to: 'users#ajax', via: :get
-  match '/browser/ajax', to: 'browser#ajax', via: :get
-  match '/browser/ajax_forward', to: 'browser#ajax_forward', via: :get
-  match '/browser/default', to: 'browser#default', via: :get
   match '/browser/results', to: 'browser#results', via: :get
   devise_for :users
 

@@ -7,22 +7,6 @@
 
       <div class="span12 hashchange">
         <div class="content_container" id="out_slider">
-          <div class="content_header" id="departments_header">
-            <p id="departments_name">department</p>
-            <p class="blank1"></p>
-          </div>
-          <div id="in_slider">
-            <% @subjects.each do |sub| %>
-            <div class="note_line">
-              <ul>
-                <li class="departments_line_name">
-                  <%= link_to sub.name, "##{sub.abbr}",
-                  {path: url_for(sub)} %>
-                </li>
-              </ul>
-              <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "department_icon")%>
-            </div>
-            <% end %>
-          </div>
+          <%= render partial: 'default' %>
         </div>
       </div>

@@ -1,16 +1,21 @@
 class SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
-    @courses = @subject.courses
+    @courses = @subject.courses.paginate(per_page: 10, page: params[:page])
     @instructors = @subject.instructors_by_count
-    respond_to do |format|
-      format.html { render partial: 'subjects/show' }
-      format.js
+    if request.xhr?
+      respond_to do |format|
+        format.html { render partial: 'show' }
+      end
     end
   end
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.paginate(
+      per_page: 10, 
+      page: params[:page],
+      order: 'abbr'
+    )
   end
 
   def results

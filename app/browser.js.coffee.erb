@@ -4,7 +4,7 @@ states = {}
 breadcrumbBools = []
 lastHash = location.hash
 
-debug = (string) ->
+test = (string) ->
   alert("ALERT: " + string)
 
 countHashes = (string) ->
@@ -27,60 +27,6 @@ jQuery ->
   setStateHash("#")
   setStateHash("")
 
-
-addBreadcrumb = (link, abbr) ->
-  if link.toLowerCase().indexOf('subjects') >= 0
-    breadcrumb = '#second_breadcrumb'
-    slash = '#second_slash'
-  else if link.toLowerCase().indexOf('courses') >= 0
-    breadcrumb = '#third_breadcrumb'
-    slash = '#third_slash'
-  if breadcrumb && slash
-    $(breadcrumb).html(abbr) 
-    $(slash).show("slow")
-    $(breadcrumb).show("slow")
-
-removeBreadcrumb = (link) ->
-  if link.toLowerCase().indexOf('subjects') >= 0
-    breadcrumb = '#third_breadcrumb'
-    slash = '#third_slash'
-  else if link.toLowerCase().indexOf('browser') >= 0
-    breadcrumb = '#second_breadcrumb'
-    slash = '#second_slash'
-  if breadcrumb && slash
-    $(slash).hide("slow")
-    $(breadcrumb).hide("slow", ->
-      $(this).html('')
-    )
-
-if history && history.pushState 
-  jQuery ->
-    slider = $("#out_slider")
-    $('.note_line a, .pagination a').live('click', (e)->
-      link = this.href
-      abbr = $(this).attr('data-abbr')
-      $.get(link, (data) ->
-        addBreadcrumb(link, abbr)
-        slider.hide()
-        slider.html(data)
-        slider.show('slide', {direction:'right'}, 300)
-      ) 
-      history.pushState(null, "", this.href)
-      e.preventDefault()
-    )
-
-    $(window).bind('popstate', ->
-      link = location.href
-      $.get(location.href, (data) ->
-        slider.hide()
-        slider.html(data)
-        slider.show('slide', {direction:'left'}, 300)
-        removeBreadcrumb(link)
-      )
-    )
-
-
-###
 jQuery ->
   $('.hashchange').on('click', 'a', ->
     clicked = true
@@ -189,4 +135,4 @@ jQuery ->
       slider.html('').append(states[location.hash]);
       slider.show('slide', {direction: 'left'}, 300)
     lastHash = location.hash
-###
+
