@@ -1,0 +1,11 @@
+          <% @subjects.each do |sub| %>
+          <div class="note_line">
+            <ul>
+              <li class="departments_line_name">
+                <%= link_to sub.name, "##{sub.abbr}",
+                {path: url_for(sub)} %>
+              </li>
+            </ul>
+            <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "department_icon")%>
+          </div>
+          <% end %>
