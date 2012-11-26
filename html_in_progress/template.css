@@ -102,6 +102,13 @@ a {
 }
 */
 
+
+/* HEADER */
+#header {
+	position: absolute;	
+	top:0px;
+}
+
 /* MAIN NAV */
 #nav_container {
 	position:relative;

@@ -33,7 +33,6 @@ class Course < ActiveRecord::Base
     return set.to_a
   end
 
-  #hacky, think about this
   def course_attributes
     set = Set.new []
     for section in self.sections
