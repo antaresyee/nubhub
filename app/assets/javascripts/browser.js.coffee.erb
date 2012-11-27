@@ -1,17 +1,73 @@
-clicked = false
-lastVisited = document.createElement("a")
 
-jQuery ->
-  breadcrumbs = [$("#second_slash"), $("#third_slash")]
+debug = (string) ->
+  alert("ALERT: " + string)
+
+
+initBreadcrumbs = ->
+  breadcrumbs = [$("#second_slash"), $("#third_slash"), $("#second_breadcrumb"), $("#third_breadcrumb")]
   for e in breadcrumbs
     e.css('display', 'none')
+
 jQuery ->
-  $('.hashchange').on('click', 'a', ->
-    clicked = true
-    if $(this).attr("href") == $(lastVisited).attr("href")
-      clicked = false
-    $(lastVisited).attr("href", $(this).attr("href"))
-    $('.test').html('OKAYAJ')
+  initBreadcrumbs()
+
+
+
+addBreadcrumb = (link, abbr) ->
+  if link.toLowerCase().indexOf('subjects') >= 0
+    breadcrumb = '#second_breadcrumb'
+    slash = '#second_slash'
+  else if link.toLowerCase().indexOf('courses') >= 0
+    breadcrumb = '#third_breadcrumb'
+    slash = '#third_slash'
+  if breadcrumb && slash
+    $(breadcrumb).html(abbr) 
+    $(slash).show("slow")
+    $(breadcrumb).show("slow")
+
+removeBreadcrumb = (link) ->
+  if link.toLowerCase().indexOf('subjects') >= 0
+    breadcrumb = '#third_breadcrumb'
+    slash = '#third_slash'
+  else if link.toLowerCase().indexOf('browser') >= 0
+    breadcrumb = '#second_breadcrumb'
+    slash = '#second_slash'
+  if breadcrumb && slash
+    $(slash).hide("slow")
+    $(breadcrumb).hide("slow", ->
+      $(this).html('')
+    )
+
+if history && history.pushState 
+  jQuery ->
+    slider = $("#out_slider")
+    $('.note_line a, .pagination a').live('click', (e)->
+      link = this.href
+      abbr = $(this).attr('data-abbr')
+      $.get(link, (data) ->
+        addBreadcrumb(link, abbr)
+        slider.hide()
+        slider.html(data)
+        slider.show('slide', {direction:'right'}, 300)
+      ) 
+      history.pushState(null, "", this.href)
+      e.preventDefault()
+    )
+
+    $(window).bind('popstate', ->
+      link = location.href
+      $.get(location.href, (data) ->
+        slider.hide()
+        slider.html(data)
+        slider.show('slide', {direction:'left'}, 300)
+        removeBreadcrumb(link)
+      )
+    )
+
+
+###
+jQuery ->
+  $("#alpha_list").on('click', 'a', ->
     hash = location.hash
     temp = document.createElement("a")
     $(temp).attr("path", $(this).attr("path"))
@@ -21,8 +77,9 @@ jQuery ->
       dataType: "html",
       cache: false
     }).done (data) ->
-      slider = $('#slider')
-      slider.css("display", "none")
-      $('#slider').html('').append(data);
-      $('#slider').show('slide', {direction: 'right'}, 300)
+      slider = $('#in_slider')
+      slider.hide()
+      slider.html("").append(data);
+      slider.show('slide', {direction: 'right'}, 300)
   )
+###

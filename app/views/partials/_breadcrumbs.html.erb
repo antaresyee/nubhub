@@ -1,14 +1,21 @@
-<div class="row-fluid">
-	<div class="span12 hashchange" id="breadcrumb_container">
+
+<ul id="breadcrumb_container">
+	<li>
 		<%= link_to "Home", root_path,
-		class: "breadcrumbs" %>
-		<p id="first_slash">/</p>
+		id: "root_breadcrumb" %>
+		<span class="divider" id="first_slash">/</span>
+	</li>
+	<li>
 		<%= link_to "Duke University", "#",
-			{path: "/browser/default",
-				class: "breadcrumbs"} %>
-		<p id="second_slash">/</p>
-		<a class="breadcrumbs"></a>
-		<p id="third_slash">/</p>
-		<a class="breadcrumbs"></a>
-	</div>
-</div>
+		{path: "/browser/default",
+			id: "first_breadcrumb"} %>
+		<span class="divider" id="second_slash">/</span>
+	</li>
+	<li>
+		<a id="second_breadcrumb"></a>
+		<span class="divider" id="third_slash">/</span>
+	</li>
+			<a id="third_breadcrumb"></a>
+</ul>
+
+

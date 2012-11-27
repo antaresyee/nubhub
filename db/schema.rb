@@ -11,12 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108234338) do
-
-  create_table "areas_of_knowledges_courses", :id => false, :force => true do |t|
-    t.integer "course_id"
-    t.integer "areas_of_knowledge_id"
-  end
+ActiveRecord::Schema.define(:version => 20121122183317) do
 
   create_table "course_attributes", :force => true do |t|
     t.string   "name"
@@ -50,11 +45,6 @@ ActiveRecord::Schema.define(:version => 20121108234338) do
     t.integer  "subject_id"
   end
 
-  create_table "courses_modes_of_inquiries", :id => false, :force => true do |t|
-    t.integer "course_id"
-    t.integer "modes_of_inquiry_id"
-  end
-
   create_table "instructors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -80,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20121108234338) do
     t.datetime "updated_at",                 :null => false
     t.string   "content",    :default => "", :null => false
     t.integer  "user_id",    :default => -1, :null => false
-    t.string   "file"
+    t.string   "filename"
   end
 
   create_table "prerequisite_relations", :force => true do |t|
@@ -103,14 +93,6 @@ ActiveRecord::Schema.define(:version => 20121108234338) do
     t.datetime "updated_at",          :null => false
     t.integer  "course_id"
     t.integer  "instructor_id"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "role"
-    t.integer  "instructor_id"
-    t.integer  "course_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
   end
 
   create_table "sections", :force => true do |t|
@@ -174,9 +156,6 @@ ActiveRecord::Schema.define(:version => 20121108234338) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -187,6 +166,10 @@ ActiveRecord::Schema.define(:version => 20121108234338) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "session_id"
+    t.string   "name"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

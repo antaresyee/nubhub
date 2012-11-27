@@ -1,14 +1,17 @@
 <div class="content_header" id="departments_header">
 	<p id="departments_name">department</p>
+	<p class="blank1"></p>
 </div>
-<% @subjects.each do |sub| %>
+<div id="in_slider">
+	<% @subjects.each do |sub| %>
 	<div class="note_line">
 		<ul>
 			<li class="departments_line_name">
-				<%= link_to sub.name, "##{sub.abbr}",
-				{path: url_for(sub)} %>
+				<%= link_to sub.name, sub, data: {abbr: sub.abbr} %>
 			</li>
 		</ul>
 		<%= image_tag("course_icon.jpg", width: 15, height: 19, class: "department_icon")%>
 	</div>
-<% end %>
+	<% end %>
+</div>
+<%= will_paginate @subjects %>

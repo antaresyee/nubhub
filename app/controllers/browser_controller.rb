@@ -1,36 +1,23 @@
-
 class BrowserController < ApplicationController
 
 	def index
-    	@subjects = Subject.all.sort_by &:abbr
+    	@subjects = Subject.paginate(
+    		per_page: 10, 
+    		page: params[:page],
+    		order: 'abbr'
+    	)
+    	if request.xhr?
+    		respond_to do |format|
+    			format.html { render partial: 'default' }
+    		end
+    	end
 	end
 
-	def ajax
-		@notes = Note.all
-    	@subjects = Subject.all.sort_by &:abbr
-    	@path = params[:path]
-		@newHtml = render_to_string partial: @path
-		respond_to do |format|
-			format.html { redirect_to browser_index_path + "#notes" }
-			format.js
-			flash[:success] = "RUNNING"
+	def results
+		@search = Sunspot.search Course, Subject do
+			keywords params[:search]
 		end
-	end
-
-	def default
-		@subjects = Subject.all.sort_by &:abbr
-		respond_to do |format|
-			format.html { render partial: 'browser/default' }
-			format.js
-		end
-	end
-
-
-	def ajax_forward
-		respond_to do |format|
-			format.html { redirect_to :back }
-			format.js
-		end
+		@search_results = @search.results		
 	end
 
 end

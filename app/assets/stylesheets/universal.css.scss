@@ -1,0 +1,34 @@
+/* Stylings that can be used universally */
+
+.blank1 {
+	height:70px;
+	clear:both;
+	position:relative;
+	margin-top:-1em;
+}
+
+
+.blank2 {
+	height:150px;
+	clear:both;
+	position:relative;
+	margin-top:-1em;
+}
+
+.pagination {
+	position:relative;
+	z-index:1000; /* arbitrarily high value to bring links up to top */	
+}
+
+.accordian {
+	position:relative;
+	z-index:1000; /* arbitrarily high value to bring links up to top */	
+}
+
+.accordian_heading {
+	position:relative;
+	width:100%;
+	height:35px;
+	margin-bottom:2px;
+	background-color:#0f46ad;
+}

@@ -1,9 +1,11 @@
 class CoursesController < ApplicationController
   def show
     @course = Course.find_by_id(params[:id])
-    respond_to do |format|
-      format.html { render partial: 'courses/show' }
-      format.js
+    @sections = @course.sections.paginate(per_page: 10, page: params[:page])
+    if request.xhr?
+      respond_to do |format|
+        format.html { render partial: 'show' }
+      end
     end
   end
 
@@ -13,11 +15,9 @@ class CoursesController < ApplicationController
       format.html { render partial: 'courses/index' }
       format.js
     end
-    #here so the check boxes work
   end
 
   def results
-    #for check boxes
     @search = Course.search do |q|
       q.fulltext(params[:search])
     end
