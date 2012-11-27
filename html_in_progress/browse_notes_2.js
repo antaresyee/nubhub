@@ -146,7 +146,6 @@ function styleBreadcrumb(breadcrumb) {
 	
 	//style breadcrumb
 	breadcrumb.css("color", "#ACC6F4");
-	breadcrumb.css("font-weight", "bold");
 	breadcrumb.hover(function(){$(this).css("cursor", "text")}, function(){$(this).css("cursor", "pointer")});
 }
 
