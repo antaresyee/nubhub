@@ -1,9 +1,163 @@
+/* LEFT CONTAINER */
+#left_container {
+	float:left;
+	position:relative;
+	width:25%;
+}
+
+#my_notes_profile_picture {
+	position:relative;
+	margin-left:23%;
+	top:60px;
+	width:150px;
+	height:150px;
+	border:3px solid white;
+	background-color:#0F46AD;
+}
+
+#left_container p {
+	position:relative;
+	margin-left:23%;
+	width:100px;
+	font-size:22px;
+}
+
+#my_notes_username {
+	top:63px;
+}
+
+#my_notes_horizontal_line {
+	position:relative;
+	top:60px;
+	margin-left:23%;
+	width:50%;
+}
+
+#my_notes_num_uploads {
+	top:60px;
+}
+
+#left_container #my_notes_uploads {
+	top:42px;
+	font-size:15px;
+}
+
+/* RIGHT CONTAINER */
+#right_container {
+	float:right;
+	position:relative;
+	top:90px;
+	width:75%;
+}
+
+#upload_notes_button {
+	position:relative;
+	margin-left:5%;
+	left:520px;
+	top:38px;
+}
+
+.content_tab {
+	position:relative;
+	width:150px;
+	height:100px;
+	background-color:#0F46AD;
+	border-radius:16px;
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+}
+
+#tab_container {
+	position:relative;
+	top:7px;
+	width:300px;
+	margin-left:5%;
+}
+
+#following_tab {
+	float:left;
+}
+
+#uploads_tab {
+	float:right;
+	background-color:#1c54bd;
+}
+
+.content_tab p {
+	position:relative;
+	width:50%;
+	top:12px;
+	margin:0 auto;
+	font-family:proxima_nova;
+}
+
 #my_notes_content_container {
 	position:relative;
-	width:500px;
+	margin-left:1%;
+	top:30px;
+	width:75%;
 	height:1000px;
-	background-color:#6089d4;
+	min-width:700px;
+	background-color:#0F46AD;
 	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
+}
+
+#following_container {
+
+}
+
+.content_line {
+	position:relative;
+	width:100%;
+	height:140px;
+}
+
+.content_line_course_number {
+	position:relative;
+	left:11%;
+	bottom:40px;
+}
+
+.content_line_course_number a {
+	font-family:gotham_bold;
+	font-size:22px;
+}
+
+.content_line_course_number a:hover {
+	color:#BAD1FB;
+}
+
+.content_line_course_name {
+	position:relative;
+	left:11%;
+	bottom:55px;
+	font-family:proxima_nova;
+	font-size:15px;
+	color:#BAD1FB;
+}
+
+.content_line_school_name {
+	position:relative;
+	left:11%;
+	bottom:68px;
+	font-size:14px;
+	font-style:italic;
+	color:#BAD1FB;
+}
+
+.my_notes_course_icon {
+	position:relative;
+	left:4%;
+	bottom:135px;
+}
+
+.content_line_line {
+	position:relative;
+	margin:0 auto;
+	bottom:82px;
+	width:90%;
+	height:1px;
+	border-top:1px solid #6089D4;
 }

@@ -1,3 +1,5 @@
+//@author antaresyee
+
 var allBreadcrumbs = [$("#university"), $("#first_slash"), $("#department"), $("#second_slash"), $("#course")];
 var state = 0;
 
@@ -14,14 +16,6 @@ function prepareEventHandlers() {
 	onChooseDepartment();
 }
 
-function onClickDepartment() {
-	var department = $("#department");
-	department.click(function() {
-		displayCourses();
-		state = 1;
-	});
-}
-
 function onClickUniversity() {
 	var university = $("#university");
 	university.click(function() {
@@ -30,10 +24,11 @@ function onClickUniversity() {
 	});
 }
 
-function onChooseCourse() {
-	$(".courses_line_name").click(function(){
-		displayNotes($(this));
-		state = 2;
+function onClickDepartment() {
+	var department = $("#department");
+	department.click(function() {
+		displayCourses();
+		state = 1;
 	});
 }
 
@@ -44,66 +39,18 @@ function onChooseDepartment() {
 	});
 }
 
-function displayNotes(course_li) {
-	if (state == 2) {
-		return;
-	}
-	//style breadcrumb
-	styleBreadcrumb($("#course"));
-
-	//change container
-	$("#courses_container").css("display", "none");
-	$("#departments_container").css("display", "none");
-	$("#notes_container").show('slide', {direction: 'right'}, 300);
-
-	//fill container (AJAX)
-	//console.log(course_li.text());
-	//$.ajax({
-  	//	url: "INSERT PATH TO BACKEND SCRIPT HERE",
-  	//	type: "POST",
-  	//	data: {context: course_li.text()}
-	//}).done(function(html) {
-  	//	$("#notes_container").append(html);
-	//});
-}
-
-function displayCourses(department_li) {
-	if (state == 1) {
-		return;
-	}
-	//style breadcrumb
-	styleBreadcrumb($("#department"));
-
-	//hide breadcrumbs
-	$("#course").css("display", "none");
-	$("#second_slash").css("display", "none");
-
-	//change container
-	$("#notes_container").css("display", "none");
-	$("#departments_container").css("display", "none");
-	if (state > 1) {
-		$("#courses_container").show('slide', {direction: 'left'}, 300);
-	}
-	else {
-		$("#courses_container").show('slide', {direction: 'right'}, 300);
-	}
-
-	//fill container (AJAX)
-	//console.log(department_li.text());
-	//$.ajax({
-  	//	url: "INSERT PATH TO BACKEND SCRIPT HERE",
-  	//	type: "POST",
-  	//	data: {context: department_li.text()}
-	//}).done(function(html) {
-  	//	$("#courses_container").append(html);
-	//});
+function onChooseCourse() {
+	$(".courses_line_name").click(function(){
+		displayNotes($(this));
+		state = 2;
+	});
 }
 
 function displayDepartments() {
 	if (state == 0) {
 		return;
 	}
-	//style breadcrumb
+
 	styleBreadcrumb($("#university"));
 
 	//hide breadcrumbs
@@ -123,14 +70,46 @@ function displayDepartments() {
 		$("#departments_container").show('slide', {direction: 'right'}, 300);
 	}
 
-	//fill container (AJAX)
-	//$.ajax({
-  	//	url: "INSERT PATH TO BACKEND SCRIPT HERE",
-  	//	type: "POST"
-	//}).done(function(html) {
-  	//	$("#departments_container").append(html);
-	//});
+	//AJAX HERE
+}
 
+function displayCourses(department_li) {
+	if (state == 1) {
+		return;
+	}
+
+	styleBreadcrumb($("#department"));
+
+	//hide breadcrumbs
+	$("#course").css("display", "none");
+	$("#second_slash").css("display", "none");
+
+	//change container
+	$("#notes_container").css("display", "none");
+	$("#departments_container").css("display", "none");
+	if (state > 1) {
+		$("#courses_container").show('slide', {direction: 'left'}, 300);
+	}
+	else {
+		$("#courses_container").show('slide', {direction: 'right'}, 300);
+	}
+
+	//AJAX HERE
+}
+
+function displayNotes(course_li) {
+	if (state == 2) {
+		return;
+	}
+
+	styleBreadcrumb($("#course"));
+
+	//change container
+	$("#courses_container").css("display", "none");
+	$("#departments_container").css("display", "none");
+	$("#notes_container").show('slide', {direction: 'right'}, 300);
+
+	//AJAX HERE
 }
 
 function styleBreadcrumb(breadcrumb) {
