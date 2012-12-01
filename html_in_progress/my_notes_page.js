@@ -26,6 +26,8 @@ function displayFollowing() {
 	toggleTab("following");
 	$("#uploads_container").css("display","none");
 	$("#following_container").css("display","block");
+
+	//AJAX HERE
 }
 
 function onClickUploads() {
@@ -43,6 +45,8 @@ function displayUploads() {
 	toggleTab("uploads");
 	$("#following_container").css("display","none");
 	$("#uploads_container").css("display","block");
+
+	//AJAX HERE
 }
 
 function toggleTab(tab) {
