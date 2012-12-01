@@ -73,7 +73,7 @@ function displayDepartments() {
 	//AJAX HERE
 }
 
-function displayCourses(department_li) {
+function displayCourses() {
 	if (state == 1) {
 		return;
 	}
@@ -97,7 +97,7 @@ function displayCourses(department_li) {
 	//AJAX HERE
 }
 
-function displayNotes(course_li) {
+function displayNotes() {
 	if (state == 2) {
 		return;
 	}

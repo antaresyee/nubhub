@@ -76,17 +76,20 @@
 
 #following_tab {
 	float:left;
+	cursor:pointer;
+	background-color:#0F46AD;
 }
 
 #uploads_tab {
 	float:right;
-	background-color:#1c54bd;
+	cursor:pointer;
+	background-color:#1C54BD;
 }
 
 .content_tab p {
 	position:relative;
 	width:50%;
-	top:12px;
+	top:10px;
 	margin:0 auto;
 	font-family:proxima_nova;
 }
@@ -94,7 +97,7 @@
 #my_notes_content_container {
 	position:relative;
 	margin-left:1%;
-	top:30px;
+	top:44px;
 	width:75%;
 	height:1000px;
 	min-width:700px;
@@ -104,8 +107,9 @@
 	-webkit-border-radius:8px;
 }
 
+/* FOLLOWING TAB */
 #following_container {
-
+	position:relative;
 }
 
 .content_line {
@@ -115,9 +119,9 @@
 }
 
 .content_line_course_number {
-	position:relative;
+	position:absolute;
 	left:11%;
-	bottom:40px;
+	bottom:52px;
 }
 
 .content_line_course_number a {
@@ -130,34 +134,94 @@
 }
 
 .content_line_course_name {
-	position:relative;
+	position:absolute;
 	left:11%;
-	bottom:55px;
+	bottom:37px;
 	font-family:proxima_nova;
 	font-size:15px;
 	color:#BAD1FB;
 }
 
 .content_line_school_name {
-	position:relative;
+	position:absolute;
 	left:11%;
-	bottom:68px;
+	bottom:24px;
 	font-size:14px;
 	font-style:italic;
 	color:#BAD1FB;
 }
 
+.content_line_num_downloads {
+	position:absolute;
+	bottom:47px;
+	left:84%;
+	font-size:15px;
+
+}
+
 .my_notes_course_icon {
-	position:relative;
+	position:absolute;
 	left:4%;
-	bottom:135px;
+	bottom:65px;
+}
+
+.my_notes_download_icon {
+	position:absolute;
+	bottom:62px;
+	left:80%;
+}
+
+.my_notes_x_icon {
+	position:absolute;
+	bottom:64px;
+	left:91%;
 }
 
 .content_line_line {
-	position:relative;
-	margin:0 auto;
-	bottom:82px;
+	position:absolute;
+	margin-left:5%;
+	bottom:0px;
 	width:90%;
 	height:1px;
 	border-top:1px solid #6089D4;
 }
+
+/* UPLOADS TAB */
+
+#uploads_container {
+	position:relative;
+	display:none;
+}
+
+.content_line_date {
+	position:absolute;
+	left:11%;
+	bottom:52px;
+	font-family:gotham_bold;
+	font-size:22px;
+}
+
+.my_notes_note_icon {
+	position:absolute;
+	left:4%;
+	bottom:61px;
+}
+
+.content_line_uploads_course_name {
+	position:absolute;
+	left:11%;
+	bottom:40px;
+	font-size:14px;
+	color:#BAD1FB;
+}
+
+.content_line_uploads_school_name {
+	position:absolute;
+	left:11%;
+	bottom:25px;
+	font-size:13px;
+	font-style:italic;
+	color:#BAD1FB;
+}
+
+
