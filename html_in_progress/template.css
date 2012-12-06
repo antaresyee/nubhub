@@ -8,18 +8,8 @@
 }
 
 @font-face {
-	font-family:vag_rounded;
-	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
-}
-
-@font-face {
 	font-family:gotham_bold;
 	src:url("../app/assets/fonts/Gotham-Bold.otf");
-}
-
-@font-face {
-	font-family:proxima_nova;
-	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
 }
 
 @font-face {
@@ -95,13 +85,9 @@ a {
 	background-color:#a19f9f;
 }
 
-/* used to put space between last element and footer */
-/*
-.clear_bottom {
-	height:150px;
+.horizontal_line {
+	border-top:1px solid #6089D4;
 }
-*/
-
 
 /* HEADER */
 #header {
@@ -178,7 +164,7 @@ a {
 /* FOOTER */
 #footer_container {
 	position:fixed;
-	bottom:0pt;
+	bottom:0px;
 	background-image: none;
     background-repeat: repeat;
     background-attachment: scroll;
@@ -202,7 +188,7 @@ a {
 }
 
 footer ul li a:hover{
-	color:#6B96E4;
+	color:#A19F9F;
 }
 
 #privacy_footer {

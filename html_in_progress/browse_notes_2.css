@@ -50,19 +50,30 @@
 
 #breadcrumb_container p{
 	display:inline;
-	font-size:30px;
+	font-size:24px;
 	color:#FFFFFF;
 }
 
-#school {
-	color:#FFFFFF;
+#university {
+	color:#ACC6F4;
+	cursor:text;
+}
+
+#breadcrumb_container #first_slash {
+	display:none;
 }
 
 #department {
+	display:none;
 	color:#FFFFFF;
 }
 
+#breadcrumb_container #second_slash {
+	display:none;
+}
+
 #course {
+	display:none;
 	color:#ACC6F4;
 	font-weight:bold;
 	cursor:text;
@@ -70,7 +81,7 @@
 
 /* DEPARTMENTS CONTAINER */
 #departments_container {
-	display:none;
+	display:block;
 }
 
 #departments_name {
@@ -134,6 +145,7 @@
 
 /* NOTES CONTAINER */
 #notes_container {
+	display:none;
 }
 
 #notes_header p {
