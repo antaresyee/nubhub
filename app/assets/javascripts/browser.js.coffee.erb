@@ -36,10 +36,20 @@ removeBreadcrumb = (link) ->
     )
 
 
+
 if history && history.pushState 
+  previousState = null
   jQuery ->
+    $(".no_history").live('click', (e)->
+      alert("HEYY")
+      return false
+    ) 
     slider = $("#out_slider")
     $('.note_line a, .pagination a').live('click', (e)->
+      if previousState != null
+        if previousState == location.href
+          return false
+      previousState = location.href
       link = this.href
       abbr = $(this).attr('data-abbr')
       $.get(link, (data) ->
@@ -53,12 +63,14 @@ if history && history.pushState
     )
 
     $(window).bind('popstate', ->
-      link = location.href
+      if previousState == null
+        return false
+      previousState = location.href
       $.get(location.href, (data) ->
         slider.hide()
         slider.html(data)
         slider.show('slide', {direction:'left'}, 300)
-        removeBreadcrumb(link)
+        removeBreadcrumb(previousState)
       )
     )
 

@@ -10,9 +10,13 @@
               </li>
             </ul>
             <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "course_icon")%>
-            <%= link_to image_tag("plus_icon_2.jpg", width: 15, height: 19, class: "plus_icon", id: "add_course",
-              data: { courseId: "#{course.id}" }
-              ) 
+            <%= link_to image_tag(
+              "plus_icon_2.jpg", 
+              width: 15, height: 19, 
+              class: "plus_icon no_history", 
+                id: "add_course",
+              ),
+              note_booked_relationships_path, method: :post, course: "#{course.id}", user: "#{current_user.id}", remote: true
             %>
             <%= image_tag("x_icon.jpg", width: 15, height: 19, class: "x_icon")%>
           </div>
