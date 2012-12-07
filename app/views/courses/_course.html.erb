@@ -1,85 +1,16 @@
 
-<div class="test">
-</div>
 <div class = "list_courses offset1">
     
     <h3 class="list_course_title course_link"><%= link_to courseToString(course), course_path(course)  %>
 
         <% if current_page?(current_user) %>
-
-            <%= form_tag(
-                url_for(
-                    controller: :users,
-                    action: 'ajax',
-                    user: current_user,
-                    course: course
-                ),
-                method: :get,
-                remote: true
-            ) do %>
-                <%= submit_tag(
-                    "Unfollow", 
-                    class: "btn btn-warning btn-unfollow-course"
-                ) %>
-
-            <% end %> 
+            HELLO
         <% elsif current_user.courses.include?(course) %>
-            <%= button_to "Unfollow", 
-                {
-                    controller: :note_booked_relationships,
-                    action: 'destroy',
-                    id: params[:id],
-                    user: current_user,
-                    course: course        
-                }, {
-                    method: :delete,
-                    class: "btn btn-warning btn-unfollow-course",
-                    remote: true
-                }
-            %>
+            NOOOLOO
         <% else %>
-            <%= form_tag(
-                url_for(
-                controller: :note_booked_relationships,
-                user: current_user,
-                course: course,
-                action: 'create',
-                ),
-                method: :post,
-                remote: true
-            ) do %>
-                <%= submit_tag(
-                    "Follow", 
-                    class: "btn btn-success btn-follow-course"
-                ) %>
-
-            <% end %> 
+            HEYY
         <% end %> 
-        <!--
-        <form action=new_notebookedrelationship_path>
-            <button type="submit" class="btn btn-success btn-follow-course" data-toggle="button">
-                Follow 
-            </button>
-        </form>
-        -->
     </h3>
-<!-- 
-    <div class="list_course_content">
-    <strong>Professors:</strong> <%= render :partial => "partials/instructors", :locals => { :instructors => course.instructors} %>
-    <br>
-    
-    <strong>Attributes:</strong>
-    <% for attribute in course.course_attributes %>
-    <%= attribute.toString %>
-    <% end %>
-    <br>
-    
-    <strong>Description:</strong> <% for description in course.descriptions %>
-    <% if description!=nil %>
-    <%= description.truncate(250) %>
-    <% end %><% end %>
-    </div>
--->
 </div>  
 
 

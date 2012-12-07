@@ -2,7 +2,6 @@
 debug = (string) ->
   alert("ALERT: " + string)
 
-
 initBreadcrumbs = ->
   breadcrumbs = [$("#second_slash"), $("#third_slash"), $("#second_breadcrumb"), $("#third_breadcrumb")]
   for e in breadcrumbs
@@ -10,8 +9,6 @@ initBreadcrumbs = ->
 
 jQuery ->
   initBreadcrumbs()
-
-
 
 addBreadcrumb = (link, abbr) ->
   if link.toLowerCase().indexOf('subjects') >= 0
@@ -37,6 +34,7 @@ removeBreadcrumb = (link) ->
     $(breadcrumb).hide("slow", ->
       $(this).html('')
     )
+
 
 if history && history.pushState 
   jQuery ->

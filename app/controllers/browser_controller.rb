@@ -1,11 +1,7 @@
 class BrowserController < ApplicationController
 
 	def index
-    	@subjects = Subject.paginate(
-    		per_page: 10, 
-    		page: params[:page],
-    		order: 'abbr'
-    	)
+    	@subjects = Subject.all
     	if request.xhr?
     		respond_to do |format|
     			format.html { render partial: 'default' }

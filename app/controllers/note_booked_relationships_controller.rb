@@ -9,6 +9,10 @@ class NoteBookedRelationshipsController < ApplicationController
         @user.courses.delete(@course)
       end
     end
+    respond_to do |format|
+      format.html redirect_to :back
+      format.js
+    end
   end
 
   def create
@@ -19,6 +23,9 @@ class NoteBookedRelationshipsController < ApplicationController
         @user.courses << @course
         flash[:success] =  "Added course"
       end
+    end
+    respond_to do |format|
+      format.html redirect_to :back
     end
   end
 
