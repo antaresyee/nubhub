@@ -4,27 +4,17 @@
 
 @font-face {
 	font-family:proxima_nova;
-	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
+	src:url("ProximaNova-Regular.otf");
 }
 
 @font-face {
 	font-family:vag_rounded;
-	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
+	src:url("VAG-Rounded-Bold.ttf");
 }
 
 @font-face {
 	font-family:gotham_bold;
-	src:url("../app/assets/fonts/Gotham-Bold.otf");
-}
-
-@font-face {
-	font-family:proxima_nova;
-	src:url("../app/assets/fonts/ProximaNova-Regular.otf");
-}
-
-@font-face {
-	font-family:vag_rounded;
-	src:url("../app/assets/fonts/VAG-Rounded-Bold.ttf");
+	src:url("Gotham-Bold.otf");
 }
 
 /* UNIVERSAL STYLING */
@@ -170,7 +160,8 @@ a {
 /* FOOTER */
 #footer_container {
 	clear: both;
- 	position: relative;
+ 	position: fixed;
+ 	bottom: 0px;
  	margin-top: -1em;	
 	background-image: none;
     background-repeat: repeat;

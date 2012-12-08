@@ -1,3 +1,4 @@
+
 <!--
 <%= gravatar_for(@user) %>
 <%= gravatar_change(@user) %>
@@ -31,13 +32,7 @@
 -->
 
 
-<% @courses.each do |course| %>
-	<%= course.name %>
-<% end %>
-
-
 <!--start content-->
-<!--
   <div id="left_container">
     <div id="my_notes_profile_picture"></div>
     <p id="my_notes_username"><%= @user.name %></p>
@@ -61,27 +56,31 @@
     
     <div id="my_notes_content_container">
       <div id="following_container">
- <div class="content_line">
-          <p class="content_line_course_number"><a>Computer Science 108</a></p>
-          <p class="content_line_course_name">Software Design and Implementation</p>
-          <p class="content_line_school_name">Duke University</p>
-          <p class="content_line_num_downloads">47</p>
-          <img class="my_notes_course_icon" src="../app/assets/images/course_icon.jpg" height="32" width="26"/>
-          <img class="my_notes_download_icon" src="../app/assets/images/download_icon.jpg" height="20" width="20"/>
-          <a><img class="my_notes_x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/></a>
-          <div class="content_line_line"></div>
-        </div>
-
-        <div class="content_line">
-          <p class="content_line_course_number"><a>Computer Science 110</a></p>
-          <p class="content_line_course_name">Operating Systems</p>
-          <p class="content_line_school_name">Duke University</p>
-          <p class="content_line_num_downloads">47</p>
-          <img class="my_notes_course_icon" src="../app/assets/images/course_icon.jpg" height="32" width="26"/>
-          <img class="my_notes_download_icon" src="../app/assets/images/download_icon.jpg" height="20" width="20"/>
-          <a><img class="my_notes_x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/></a>
-          <div class="content_line_line"></div>
-        </div>
+        <% if current_user.courses.any? %>
+          <% @courses.each do |course| %>
+            <div class="content_line">
+              <p class="content_line_course_number">
+                <%= link_to "#{course.subject.abbr} #{course.new_number}: #{course.name}", "#"%>
+              </p>
+              <p class="content_line_course_name"><%= "#{course.subject.name}" %></p>
+              <p class="content_line_school_name">Duke University</p>
+              <p class="content_line_num_downloads">47</p>
+              <%= image_tag "course_icon.jpg", width: 26, height: 32, class: "my_notes_course_icon" %>
+              <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
+              <%= link_to image_tag(
+                    "x_icon.jpg",
+                    width: 15,
+                    height: 15,
+                    class: "my_notes_x_icon"   
+                ), {
+                    controller: "note_booked_relationships", action: "destroy", 
+                    course: "#{course.id}", user: "#{current_user.id}"
+                }, class: "remove_class", method: "delete", remote: true
+              %>
+              <div class="content_line_line"></div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <div id="uploads_container">
@@ -91,26 +90,12 @@
           <p class="content_line_uploads_course_name">Computer Science 108: Software Design and Implementation</p>
           <p class="content_line_uploads_school_name">Duke University</p>
           <p class="content_line_num_downloads">28</p>
-          <img class="my_notes_note_icon" src="../app/assets/images/note_icon.jpg" height="32" width="26"/>
-          <img class="my_notes_download_icon" src="../app/assets/images/download_icon.jpg" height="20" width="20"/>
-          <a><img class="my_notes_x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/></a>
+          <%= image_tag "note_icon.jpg", width: 26, height: 32, class: "my_notes_note_icon" %>
+          <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
+          <%= image_tag "x_icon.jpg", width: 15, height: 15, class: "my_notes_x_icon" %>
           <div class="content_line_line"></div>
         </div>
-
-         <div class="content_line">
-          <p class="content_line_date">2/22/12</p>
-          <p class="content_line_uploads_course_name">Computer Science 108: Software Design and Implementation</p>
-          <p class="content_line_uploads_school_name">Duke University</p>
-          <p class="content_line_num_downloads">31</p>
-          <img class="my_notes_note_icon" src="../app/assets/images/note_icon.jpg" height="32" width="26"/>
-          <img class="my_notes_download_icon" src="../app/assets/images/download_icon.jpg" height="20" width="20"/>
-          <a><img class="my_notes_x_icon" src="../app/assets/images/x_icon.jpg" height="15" width="15"/></a>
-          <div class="content_line_line"></div>
-        </div>
-
       </div>
-    </div>
   </div>
--->
 <!--end content-->
 

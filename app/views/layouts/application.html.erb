@@ -9,6 +9,7 @@
   <%= javascript_include_tag "http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js" %>
   <%= csrf_meta_tags %>
   <%= render 'partials/shim' %>
+  <%= yield :header %>
 </head>
 <% if !current_page?('/') %>
 <%= render 'partials/header' %>
@@ -22,8 +23,7 @@
   </div>
 	<%= yield %>
 </body>
-<% if !current_page?('/') %>
-  <div class="blank2"></div>
+<% if !current_page?('/') or !current_page?(user_path) %>
 	<%= render 'partials/footer' %>
 <% end %>
 </html>

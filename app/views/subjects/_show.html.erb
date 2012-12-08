@@ -16,7 +16,7 @@
               class: "plus_icon no_history", 
                 id: "add_course",
               ),
-              note_booked_relationships_path, method: :post, course: "#{course.id}", user: "#{current_user.id}", remote: true
+              {controller: "note_booked_relationships", action: "create", course: "#{course.id}", user: "#{current_user.id}"}, method: "post", remote: true
             %>
             <%= image_tag("x_icon.jpg", width: 15, height: 19, class: "x_icon")%>
           </div>

@@ -10,21 +10,19 @@ class NoteBookedRelationshipsController < ApplicationController
       end
     end
     respond_to do |format|
-      format.html redirect_to :back
+      format.html
     end
   end
 
   def create
   	if !params[:user].blank?
+      puts params[:user]
 		  @user = User.find(params[:user])
 		  @course = Course.find(params[:course])
       if !@user.courses.include?(@course)
         @user.courses << @course
         flash[:success] =  "Added course"
       end
-    end
-    respond_to do |format|
-      format.html redirect_to :back
     end
   end
 
