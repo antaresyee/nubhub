@@ -5,7 +5,6 @@ class NoteBookedRelationshipsController < ApplicationController
       @user = User.find(params[:user])
       @course = Course.find(params[:course])
       if @user.courses.include?(@course)
-        @course = @user.courses.find(params[:course])
         @user.courses.delete(@course)
       end
     end
@@ -16,7 +15,6 @@ class NoteBookedRelationshipsController < ApplicationController
 
   def create
   	if !params[:user].blank?
-      puts params[:user]
 		  @user = User.find(params[:user])
 		  @course = Course.find(params[:course])
       if !@user.courses.include?(@course)

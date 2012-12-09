@@ -1,10 +1,6 @@
 class NotesController < ApplicationController
   def index
   	@notes = Note.all
-    respond_to do |format|
-      format.html { render partial: "notes/index" }
-      format.js
-    end
   end
 
   def show
@@ -12,15 +8,23 @@ class NotesController < ApplicationController
 
   def new
   	@note = Note.new
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def create
   	@note = current_user.notes.build(file: params[:note][:file])
   	if @note.save
   		flash[:success] = "Note uploaded."
-  		redirect_to current_user
-  	else 
-  		render 'new'
+    end
+    if request.xhr?
+      respond_to do |format|
+        format.html { redirect_to current_user }
+      end
+    else 
+      redirect_to current_user
   	end
   end
 end

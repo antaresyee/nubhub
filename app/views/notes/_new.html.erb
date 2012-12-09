@@ -1,0 +1,4 @@
+<%= form_for @note, :html => {:multipart => true}, :remote => true do |f| %>
+	<p><%= f.file_field :file %></p>
+	<p><%= f.submit %></p>
+<% end %>

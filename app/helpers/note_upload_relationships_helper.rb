@@ -1,0 +1,2 @@
+module NoteUploadRelationshipsHelper
+end

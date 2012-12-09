@@ -4,4 +4,5 @@ class Note < ActiveRecord::Base
 
   validates :user_id, :presence => true
   mount_uploader :file, FileUploader
+
 end

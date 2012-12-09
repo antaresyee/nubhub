@@ -7,6 +7,11 @@ class UsersController < ApplicationController
 		@user = current_user
 		@notes = @user.notes.paginate(page: params[:page])
 		@courses = @user.courses
+    	if request.xhr?
+    		respond_to do |format|
+    			format.html { redirect_to current_user }
+    		end
+    	end
 	end
 
 	def ajax

@@ -57,3 +57,11 @@ removeElement = (element) ->
 	element.hide()
 
 
+onShowModal = () ->
+	$(".upload_notes_button").live('click', (e)->
+		alert("WORKING")
+		$("#myModal").modal('show')
+	)
+
+
+

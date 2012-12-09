@@ -14,6 +14,8 @@ class Course < ActiveRecord::Base
   has_many :note_booked_relationships
   has_many :users, through: :note_booked_relationships
 
+  has_many :note_upload_relationship
+  has_many :notes, through: :note_upload_relationship 
 
   def toSingleCode
     if self.new_number!=nil

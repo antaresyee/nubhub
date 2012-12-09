@@ -32,19 +32,36 @@
 -->
 
 
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+    <h3>upload notes</h3>
+  </div>
+
+  <div class="modal-body">
+    <%= form_for Note.new do |f| %>
+      <%= f.label :file, "upload note" %>
+      <%= f.file_field :file, multiple: true, name: "note[file]" %>
+    <% end %>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+
+</div>
+
 <!--start content-->
   <div id="left_container">
     <div id="my_notes_profile_picture"></div>
     <p id="my_notes_username"><%= @user.name %></p>
     <div id="my_notes_horizontal_line" class="horizontal_line"></div>
-    <p id="my_notes_num_uploads">12</p>
+    <p id="my_notes_num_uploads"><%= @user.notes.count %></p>
     <p id="my_notes_uploads">uploads</p>
   </div>
 
   <div id="right_container">
-    <a id="upload_notes_button">
-      	<%= image_tag("upload_notes_button.jpg", width: 123, heigth: 31) %>
-    </a>
     <div id="tab_container">
         <div id="following_tab" class="content_tab">
           <p>following</p>
@@ -60,10 +77,19 @@
           <% @courses.each do |course| %>
             <div class="content_line">
               <p class="content_line_course_number">
-                <%= link_to "#{course.subject.abbr} #{course.new_number}: #{course.name}", "#"%>
+                <%= link_to "#{course.subject.abbr} #{course.new_number}"%><br />
               </p>
-              <p class="content_line_course_name"><%= "#{course.subject.name}" %></p>
+              <p class="content_line_course_name"><%= "#{course.name}" %></p>
               <p class="content_line_school_name">Duke University</p>
+
+              <%= link_to image_tag(
+                "upload_notes_button.jpg", 
+                width: 123, heigth: 31,
+                ), new_note_path, class: "upload_notes_button",
+                data: {toggle: "modal", target: "#myModal"},
+                remote: true
+              %>
+
               <p class="content_line_num_downloads">47</p>
               <%= image_tag "course_icon.jpg", width: 26, height: 32, class: "my_notes_course_icon" %>
               <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
@@ -84,7 +110,6 @@
       </div>
 
       <div id="uploads_container">
-        
         <div class="content_line">
           <p class="content_line_date">2/24/12</p>
           <p class="content_line_uploads_course_name">Computer Science 108: Software Design and Implementation</p>
@@ -96,6 +121,7 @@
           <div class="content_line_line"></div>
         </div>
       </div>
+    </div>
   </div>
 <!--end content-->
 

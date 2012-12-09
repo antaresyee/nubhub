@@ -24,6 +24,7 @@ Nubhub::Application.routes.draw do
   resources :instructors, only: [:index, :show]
   resources :subjects, only: [:show, :index]
   resources :note_booked_relationships, only: [:create, :destroy]
+  resources :note_upload_relationship, only: [:create, :destroy]
   resources :browser
 
   # The priority is based upon order of creation:
