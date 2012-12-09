@@ -1,4 +1,7 @@
-<%= form_for @note, :html => {:multipart => true}, :remote => true do |f| %>
+<%= form_for @note, :html => {:multipart => true}, 
+	id: "note_upload", :remote => true do |f| 
+%>
+	<%= hidden_field_tag 'course', @course.id %>
 	<p><%= f.file_field :file %></p>
 	<p><%= f.submit %></p>
 <% end %>

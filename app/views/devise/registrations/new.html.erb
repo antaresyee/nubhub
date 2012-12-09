@@ -1,8 +1,3 @@
-<%= stylesheet_link_tag "template.css" %>
-<%= stylesheet_link_tag "signup.css" %>
-<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:700" %>
-
-<h2>Sign up</h2>
 
 <div id="signup_form_container">
 
@@ -23,7 +18,8 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up", class: "button" %></div>
+  <br />
+  <div><%= f.submit "Sign up", class: "button signup_button" %></div>
 <% end %>
 </div>
 <br />
@@ -32,7 +28,4 @@
 <br />
 <br />
 <br />
-<!--
-<%= render "devise/shared/links" %>
--->
 

@@ -4,7 +4,9 @@
       heigth: 50, id: "template_logo"), current_user %>
     <% if !user_signed_in? %>
       <p id="template_login_logout_link">
-        <%= link_to('Login', new_user_session_path) %>
+        <%= link_to('Login', new_user_session_path) %> 
+        /
+        <%= link_to('Signup', new_user_registration_path) %> 
       </p>
     <% else %>
       <p id="template_login_logout_link">
@@ -15,17 +17,14 @@
       <ul>
         <li id="my_notes_nav">
           <% if user_signed_in? %>
-            <%= link_to "My Notes", current_user %>
+            <%= link_to "My Hub", current_user %>
           <% else %>
-            <%= link_to "My Notes", root_path %>
+            <%= link_to "My Hub", root_path %>
           <% end %> 
         </li>
-        <li id="my_notes_nav">
+        <li id="browse_notes_nav">
           <%= link_to "Browse", browser_index_path %>
         </li>
-        <li id="browse_notes_nav">
-          <%= link_to "Browse Notes", notes_path %>
-        </li> 
         <li id="how_it_works_nav"><a>How it Works</a></li>
         <li id="contact_us_nav"><a>Contact Us</a></li>
       </ul>

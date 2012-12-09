@@ -2,17 +2,25 @@
     <div class="content_header" id="notes_header">
       <p id="notes_date">date</p>
       <p id="notes_author">author</p>
+      <p id="notes_file">file</p>
     </div>
     <div class="content_box" id="notes_box">
-      <div class="note_line">
-        <ul id="note_line_ul">
-          <li class="note_line_date">2/24/12</li>
-          <li class="note_line_author">antaresyee</li>
-          <li class="note_line_downloads">18</li>
-        </ul>
-        <%= image_tag("note_icon.jpg", width: 14, heigth: 18, class: "note_icon") %>
-        <%= image_tag("download_icon.jpg", width: 20, height: 20, class: "download_icon") %>
-      </div>
+      <% @course.notes.each do |note| %>
+        <div class="note_line_no_ajax">
+          <ul id="note_line_ul">
+            <li class="note_line_date"><%= note.formatDate %></li>
+            <li class="note_line_author"><%= note.user.name %></li>
+            <li class="note_line_file"><%= note.fileBasename %></li>
+            <li class="note_line_downloads"><%= note.numberDownloads %></li>
+          </ul>
+          <%= image_tag("note_icon.jpg", width: 14, heigth: 18, class: "note_icon") %>
+          <%= link_to image_tag(
+            "download_icon.jpg", 
+            width: 20, height: 20, 
+            class: "download_icon"
+            ), download_relationships_path(note: note.id, user: current_user.id, course: params[:id]
+            ), class: "note_download", method: :post
+          %>
+        </div>
+      <% end %>
     </div>
-
-

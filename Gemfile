@@ -26,7 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'capistrano'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'carrierwave'

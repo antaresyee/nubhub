@@ -36,15 +36,15 @@ removeBreadcrumb = (link) ->
     )
 
 
-
 if history && history.pushState 
   previousState = null
+  noteDownload = false
   jQuery ->
     $(".no_history").live('click', (e)->
       return false
     ) 
     slider = $("#out_slider")
-    $('.note_line a, .pagination a').live('click', (e)->
+    $('.departments_line_name a, .courses_line_name a').live('click', (e)->
       if previousState != null
         if previousState == location.href
           return false
@@ -74,21 +74,3 @@ if history && history.pushState
     )
 
 
-###
-jQuery ->
-  $("#alpha_list").on('click', 'a', ->
-    hash = location.hash
-    temp = document.createElement("a")
-    $(temp).attr("path", $(this).attr("path"))
-    $.ajax({
-      type: "GET",
-      url: $(temp).attr("path"),
-      dataType: "html",
-      cache: false
-    }).done (data) ->
-      slider = $('#in_slider')
-      slider.hide()
-      slider.html("").append(data);
-      slider.show('slide', {direction: 'right'}, 300)
-  )
-###

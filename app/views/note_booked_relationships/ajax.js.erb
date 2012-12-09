@@ -1,0 +1,8 @@
+
+alert("WORKING")
+if $(".<%= j(params[:course]) %>_icon").attr('src') == "../assets/plus_icon_2.jpg"
+	alert("WORKING")
+	$(".<%= j(params[:course]) %>_icon").attr('src', '../assets/x_icon.jpg')
+else 	
+	alert("WORKING")
+	$(".<%= j(params[:course]) %>_icon").attr('src', '../assets/plus_icon_2.jpg')

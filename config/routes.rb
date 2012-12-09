@@ -15,16 +15,15 @@ Nubhub::Application.routes.draw do
   match '/subjects/results', to: 'subjects#results'
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
-  match '/browser/results', to: 'browser#results', via: :get
   devise_for :users
 
   resources :users
   resources :notes
   resources :courses, only: [:index, :show]
-  resources :instructors, only: [:index, :show]
   resources :subjects, only: [:show, :index]
   resources :note_booked_relationships, only: [:create, :destroy]
-  resources :note_upload_relationship, only: [:create, :destroy]
+  resources :note_upload_relationships, only: [:create, :destroy]
+  resources :download_relationships, only: [:index, :create, :destroy]
   resources :browser
 
   # The priority is based upon order of creation:

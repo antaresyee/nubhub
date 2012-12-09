@@ -3,22 +3,39 @@
         </div>
         <div class="content_box" id="courses_box">
           <% @courses.each do |course| %>
-          <div class="note_line"> 
+          <div class="note_line_no_ajax"> 
             <ul>
               <li class="courses_line_name">
                 <%= link_to course.name, course, data: {abbr: course.new_number} %>
               </li>
             </ul>
             <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "course_icon")%>
-            <%= link_to image_tag(
-              "plus_icon_2.jpg", 
-              width: 15, height: 19, 
-              class: "plus_icon no_history", 
-                id: "add_course",
-              ),
-              {controller: "note_booked_relationships", action: "create", course: "#{course.id}", user: "#{current_user.id}"}, method: "post", remote: true
+            <% if current_user.courses.include?(course) %>
+              <%= link_to image_tag(
+                    "x_icon.jpg",
+                    width: 15,
+                    height: 19,
+                    class: "x_icon"   
+                ), {
+                    controller: "note_booked_relationships", 
+                    action: "destroy", 
+                    course: "#{course.id}", 
+                    user: "#{current_user.id}", subject: "#{@subject.id}"
+                }, class: "remove_class", method: "delete", remote: true, id: "#{course.id}_icon" 
+                %>
+            <% else %>
+              <%= link_to image_tag(
+                "plus_icon_2.jpg", 
+                width: 15, height: 19, 
+                class: "plus_icon no_history", 
+                id: "add_course"
+              ), {
+                controller: "note_booked_relationships", 
+                action: "create", course: "#{course.id}", 
+                user: "#{current_user.id}", subject: "#{@subject.id}"
+              }, method: "post", remote: true, id: "#{course.id}_icon" 
             %>
-            <%= image_tag("x_icon.jpg", width: 15, height: 19, class: "x_icon")%>
+            <% end %>
           </div>
           <% end %>
         </div>

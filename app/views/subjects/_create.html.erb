@@ -1,0 +1,11 @@
+<%= link_to image_tag(
+	"plus_icon_2.jpg", 
+	width: 15, height: 19, 
+	class: "plus_icon no_history", 
+	id: "add_course"
+), {
+	controller: "note_booked_relationships", 
+	action: "create", course: "#{@course.id}", 
+	user: "#{current_user.id}", subject: "#{@subject.id}"
+}, method: "post", remote: true, id: "#{@course.id}_icon" 
+%>

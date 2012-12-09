@@ -1,19 +1,33 @@
-<h2>Sign in</h2>
 
+<div id="signin_form_container">
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class="override_user_email">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="override_user_pass">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <div class="override_user_remember">
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    </div>
   <% end -%>
 
   <div>
-  	<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+  	<%= f.submit "Sign in", class: "button override_signup_button signup_button" %>
   </div>
 <% end %>
+  <div class="horizontal_line"></div>
+  <div id="devise_links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
 
-<%= render "devise/shared/links" %>
+<br />
+<br />
+<br />
+<br />

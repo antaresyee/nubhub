@@ -4,9 +4,21 @@ jQuery ->
 	prepareEventHandlers()
 
 prepareEventHandlers = () ->
+	checkState()
 	onClickFollowing()
 	onClickUploads()
 	onRemoveCourse()
+
+
+checkState = () ->
+	state = $("#my_notes_content_container")
+	if state.hasClass("following")
+		$("#uploads_container").hide()
+		$("#following_container").show()
+	else
+		$("#following_container").hide()
+		$("#uploads_container").show()
+
 
 onClickFollowing = () ->
 	$("#following_tab").live('click', (e)->

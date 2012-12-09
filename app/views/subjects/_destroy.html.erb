@@ -1,0 +1,12 @@
+<%= link_to image_tag(
+    "x_icon.jpg",
+    width: 15,
+    height: 19,
+    class: "x_icon"   
+), {
+    controller: "note_booked_relationships", 
+    action: "destroy", 
+    course: "#{@course.id}", 
+    user: "#{current_user.id}", id: "#{@subject.id}"
+}, class: "remove_class", method: "delete", remote: true, id: "#{@course.id}_icon" 
+%>

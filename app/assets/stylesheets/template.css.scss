@@ -13,6 +13,12 @@
 	src:url("VAG-Rounded-Bold.ttf");
 }
 
+@font-face {
+	font-family:gotham;
+	src:url("Gotham-Medium.otf");
+}
+
+
 /* UNIVERSAL STYLING */
 * {
 	font-family:proxima_nova;
@@ -206,3 +212,93 @@ footer ul li a:hover{
 	background-color:#b5b4b4;
 }
 
+
+/* Flash */
+
+#flash {
+	width:98%;
+	background-color:#0F46AD;
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	height:40px;
+	margin-left:1%;
+	position:relative;
+	top:0px;
+}
+
+#flash_success {
+	padding-top:10px;
+	margin-left:2%;
+	font-family: gotham_bold;
+	font-size: 22px;
+}
+
+#flash_notice {
+	padding-top:10px;
+	margin-left:2%;
+	font-family: gotham_bold;
+	font-size: 22px;
+}
+
+
+/* User sign up */
+
+label[for=user_name] {
+	padding-top: 8px;
+	margin-bottom: -10px;
+	font-family:gotham;
+	font-size:15px;
+}
+
+label[for=user_email] {
+	padding-top: 8px;
+	margin-bottom: -10px;
+	font-family:gotham;
+	font-size:15px;
+}
+
+label[for=user_password] {
+	padding-top: 8px;
+	margin-bottom: -10px;
+	font-family:gotham;
+	font-size:15px;
+}
+
+label[for=user_password_confirmation] {
+	padding-top: 8px;
+	margin-bottom: -10px;
+	font-family:gotham;
+	font-size:15px;
+}
+
+.signup_button {
+	padding: 8px 8px 8px 8px;
+}
+
+/* User sign in */
+#devise_links {
+	position:relative;
+	top:4%; 
+	left: 3%;
+}
+
+.override_user_email {
+	padding-top:2%;
+	padding-left:6%;
+	padding-bottom:1%;
+}
+
+.override_user_pass {
+	padding-left:6%;
+}
+
+.override_user_remember {
+	padding-left:6%;
+	padding-bottom:1%;
+}
+
+.override_signup_button {
+	margin-left:6%;
+}

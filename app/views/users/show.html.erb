@@ -39,12 +39,7 @@
     <h3>upload notes</h3>
   </div>
 
-  <div class="modal-body">
-    <%= form_for Note.new do |f| %>
-      <%= f.label :file, "upload note" %>
-      <%= f.file_field :file, multiple: true, name: "note[file]" %>
-    <% end %>
-  </div>
+  <div class="modal-body"></div>
 
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -71,7 +66,7 @@
         </div>
     </div>
     
-    <div id="my_notes_content_container">
+    <div id="my_notes_content_container" class="<%= @state %>">
       <div id="following_container">
         <% if current_user.courses.any? %>
           <% @courses.each do |course| %>
@@ -85,14 +80,14 @@
               <%= link_to image_tag(
                 "upload_notes_button.jpg", 
                 width: 123, heigth: 31,
-                ), new_note_path, class: "upload_notes_button",
+                ), new_note_path(course: course.id), class: "upload_notes_button",
                 data: {toggle: "modal", target: "#myModal"},
                 remote: true
               %>
 
-              <p class="content_line_num_downloads">47</p>
               <%= image_tag "course_icon.jpg", width: 26, height: 32, class: "my_notes_course_icon" %>
-              <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
+              <!--<p class="content_line_num_downloads">47</p>
+              <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>-->
               <%= link_to image_tag(
                     "x_icon.jpg",
                     width: 15,
@@ -110,16 +105,34 @@
       </div>
 
       <div id="uploads_container">
-        <div class="content_line">
-          <p class="content_line_date">2/24/12</p>
-          <p class="content_line_uploads_course_name">Computer Science 108: Software Design and Implementation</p>
-          <p class="content_line_uploads_school_name">Duke University</p>
-          <p class="content_line_num_downloads">28</p>
-          <%= image_tag "note_icon.jpg", width: 26, height: 32, class: "my_notes_note_icon" %>
-          <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
-          <%= image_tag "x_icon.jpg", width: 15, height: 15, class: "my_notes_x_icon" %>
-          <div class="content_line_line"></div>
-        </div>
+        <% if current_user.notes.any? %>
+          <% current_user.notes.each do |note| %>
+            <div class="content_line">
+              <p class="content_line_date"><%= note.formatDate %></p>
+              <p class="content_line_file">
+                <%= link_to note.fileBasename, note.file.url %>
+              </p>
+              <p class="content_line_uploads_course_name">
+                <%= "#{note.course.subject.name} #{note.course.new_number}: #{note.course.name}" %></p>
+              <p class="content_line_uploads_school_name">Duke University</p>
+              <p class="content_line_num_downloads"><%= note.numberDownloads %></p>
+              <%= image_tag "note_icon.jpg", width: 26, height: 32, class: "my_notes_note_icon" %>
+              <%= image_tag "download_icon.jpg", width: 20, height: 20, class: "my_notes_download_icon" %>
+              <%= link_to image_tag(
+                    "x_icon.jpg",
+                    width: 15,
+                    height: 15,
+                    class: "my_notes_x_icon"   
+                ), {
+                    controller: "notes", action: "destroy", 
+                    course: "#{note.course.id}", user: "#{current_user.id}",
+                    note: "#{note.id}"
+                }, class: "remove_class", method: "delete", remote: true
+              %> 
+              <div class="content_line_line"></div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
