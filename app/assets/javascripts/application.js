@@ -15,6 +15,5 @@
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require bootstrap
+//= require twitter/bootstrap
 //= require_tree .
-//= require users
