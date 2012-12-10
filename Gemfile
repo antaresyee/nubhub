@@ -18,23 +18,19 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails'
-gem 'capistrano'
-gem 'rvm-capistrano'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'valid_email'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
 gem 'mysql2'
 gem 'progress_bar'
 gem 'pg'
