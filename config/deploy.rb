@@ -3,7 +3,7 @@ require "rvm/capistrano"
 set :application, "nubhub"
 set :repository,  "git@github.com:antaresyee/nubhub.git"
 
-set :deploy_to, "/home/ubuntu/#{application}"
+set :deploy_to, "/var/www/#{application}"
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 set :branch, "master"
