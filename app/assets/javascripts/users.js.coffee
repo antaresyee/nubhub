@@ -1,4 +1,3 @@
-
 jQuery ->
 	prepareEventHandlers()
 
