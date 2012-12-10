@@ -56,20 +56,18 @@ if history && history.pushState
         slider.html(data)
         slider.show('slide', {direction:'right'}, 300)
       ) 
-      history.pushState(null, "", this.href)
       e.preventDefault()
     )
 
     $(window).bind('popstate', ->
       if previousState == null
         return false
-      else if previousState == location.href
-        return false
       previousState = location.href
       $.get(location.href, (data) ->
         slider.hide()
         slider.html(data)
         slider.show('slide', {direction:'left'}, 300)
+        removeBreadcrumb(previousState)
       )
     )
 
