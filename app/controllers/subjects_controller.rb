@@ -7,6 +7,8 @@ class SubjectsController < ApplicationController
       respond_to do |format|
         format.html { render partial: 'show' }
       end
+  	else
+  		render 'show'
     end
   end
 

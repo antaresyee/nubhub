@@ -6,6 +6,8 @@ class BrowserController < ApplicationController
     		respond_to do |format|
     			format.html { render partial: 'default' }
     		end
+    	else 
+    		render 'index'
     	end
 	end
 
