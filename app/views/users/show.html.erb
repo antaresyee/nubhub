@@ -70,7 +70,7 @@
       <div id="following_container">
         <% if current_user.courses.any? %>
           <% @courses.each do |course| %>
-            <div class="content_line">
+            <div class="content_line <%= "#{course.id}" %>_line">
               <p class="content_line_course_number">
                 <%= link_to "#{course.subject.abbr} #{course.new_number}"%><br />
               </p>
@@ -94,8 +94,8 @@
                     height: 15,
                     class: "my_notes_x_icon"   
                 ), {
-                    controller: "note_booked_relationships", action: "destroy", 
-                    course: "#{course.id}", user: "#{current_user.id}", on_user_page: "true"
+                    controller: "note_booked_relationships", action: "destroy_for_user", 
+                    course: "#{course.id}", user: "#{current_user.id}"
                 }, class: "remove_class", method: "delete", remote: true
               %>
               <div class="content_line_line"></div>
@@ -107,7 +107,7 @@
       <div id="uploads_container">
         <% if current_user.notes.any? %>
           <% current_user.notes.each do |note| %>
-            <div class="content_line">
+            <div class="content_line <%= "#{note.id}" %>_line">
               <p class="content_line_date"><%= note.formatDate %></p>
               <p class="content_line_file">
                 <%= link_to note.fileBasename, note.file.url %>
@@ -126,7 +126,7 @@
                 ), {
                     controller: "notes", action: "destroy", 
                     course: "#{note.course.id}", user: "#{current_user.id}",
-                    note: "#{note.id}", on_user_page: "true"
+                    note: "#{note.id}"
                 }, class: "remove_class", method: "delete", remote: true
               %> 
               <div class="content_line_line"></div>

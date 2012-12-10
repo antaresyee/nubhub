@@ -15,6 +15,7 @@ Nubhub::Application.routes.draw do
   match '/subjects/results', to: 'subjects#results'
   match '/subjects/instructors', to: 'subjects#show_instructors'
   match '/subjects/courses', to: 'subjects#show_courses'
+  match '/note_booked_relationships/destroy_for_user', to: 'note_booked_relationships#destroy_for_user', via: :delete
   devise_for :users
 
   resources :users

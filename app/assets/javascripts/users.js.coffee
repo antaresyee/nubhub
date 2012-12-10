@@ -7,7 +7,6 @@ prepareEventHandlers = () ->
 	checkState()
 	onClickFollowing()
 	onClickUploads()
-	onRemoveCourse()
 
 
 checkState = () ->
@@ -57,16 +56,6 @@ toggleTab = (tab) ->
 	else if tab == "uploads"
 		$("#uploads_tab").css("background-color","#0F46AD");
 		$("#following_tab").css("background-color","#1C54BD");
-
-
-onRemoveCourse = () ->
-	$(".remove_class").live('click', (e)->
-		removeElement($(this).parent(".content_line"))
-		e.preventDefault()
-	)
-
-removeElement = (element) ->
-	element.hide()
 
 
 onShowModal = () ->

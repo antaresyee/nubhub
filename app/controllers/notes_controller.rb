@@ -48,7 +48,7 @@ class NotesController < ApplicationController
       end
     end
     respond_to do |format|
-      format.html { redirect_to current_user }
+      format.js
     end
   end
 

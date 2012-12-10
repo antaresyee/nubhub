@@ -1,3 +1,5 @@
+require "rvm/capistrano"
+
 set :application, "nubhub"
 set :repository,  "git@github.com:antaresyee/nubhub.git"
 
