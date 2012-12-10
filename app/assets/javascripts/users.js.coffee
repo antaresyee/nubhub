@@ -19,7 +19,6 @@ checkState = () ->
 
 onClickFollowing = () ->
 	$("#following_tab").live('click', (e)->
-		alert('WORKING')
 		displayFollowing()
 		e.preventDefault()
 	)
