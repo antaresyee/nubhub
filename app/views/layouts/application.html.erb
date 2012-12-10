@@ -12,7 +12,7 @@
   <%= yield :header %>
 </head>
 <% if !current_page?('/') %>
-<%= render 'partials/header' %>
+  <%= render 'partials/header' %>
 <% end %>
 <% if !flash.empty? %>
   <div id="flash">

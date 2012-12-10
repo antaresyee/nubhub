@@ -8,7 +8,6 @@ group :development do
 end
 
 group :production do
-	gem 'pg'
 end
 
 
@@ -38,7 +37,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'mysql2'
 gem 'progress_bar'
-
+gem 'pg'
 gem 'therubyracer'
 gem 'less-rails'
 

@@ -6,7 +6,7 @@
           <div class="note_line_no_ajax"> 
             <ul>
               <li class="courses_line_name">
-                <%= link_to course.name, course, data: {abbr: course.new_number} %>
+                <%= link_to course.new_number + ": " + course.name, course, data: {abbr: course.new_number} %>
               </li>
             </ul>
             <%= image_tag("course_icon.jpg", width: 15, height: 19, class: "course_icon")%>

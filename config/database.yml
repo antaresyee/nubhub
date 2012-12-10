@@ -21,8 +21,8 @@ test:
   password:
 
 production:
-  adapter: mysql2
-  database: db/production
+  adapter: postgresql
+  database: db_production
   pool: 5
   username: root
   password:

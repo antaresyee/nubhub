@@ -3,7 +3,7 @@ require "rvm/capistrano"
 set :application, "nubhub"
 set :repository,  "git@github.com:antaresyee/nubhub.git"
 
-set :deploy_to, "/var/www/#{application}"
+set :deploy_to, "/home/ubuntu/#{application}"
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 set :branch, "master"
@@ -16,7 +16,7 @@ role :web, location                         # Your HTTP server, Apache/etc
 role :app, location                       # This may be the same as your `Web` server
 role :db,  location, :primary => true # This is where Rails migrations will run
 
-set :user, "root"
+set :user, "ubuntu"
 set :use_sudo, false
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "nubhub")] 
