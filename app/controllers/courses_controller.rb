@@ -1,10 +1,8 @@
 class CoursesController < ApplicationController
   def show
     @course = Course.find_by_id(params[:id])
-    if request.xhr?
-      respond_to do |format|
-        format.html { render partial: 'show' }
-      end
+    respond_to do |format|
+      format.html { render partial: 'show' }
     end
   end
 
@@ -12,7 +10,6 @@ class CoursesController < ApplicationController
     @subjects = Subject.all.sort_by &:abbr
     respond_to do |format|
       format.html { render partial: 'courses/index' }
-      format.js
     end
   end
 

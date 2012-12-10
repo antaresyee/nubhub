@@ -38,7 +38,6 @@ removeBreadcrumb = (link) ->
 
 if history && history.pushState 
   previousState = null
-  noteDownload = false
   jQuery ->
     $(".no_history").live('click', (e)->
       return false
@@ -64,12 +63,13 @@ if history && history.pushState
     $(window).bind('popstate', ->
       if previousState == null
         return false
+      else if previousState == location.href
+        return false
       previousState = location.href
       $.get(location.href, (data) ->
         slider.hide()
         slider.html(data)
         slider.show('slide', {direction:'left'}, 300)
-        removeBreadcrumb(previousState)
       )
     )
 
