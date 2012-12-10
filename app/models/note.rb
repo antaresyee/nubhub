@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  attr_accessible :content, :file, :downloads
+  attr_accessible :file, :downloads
   belongs_to :user
   belongs_to :course
 
