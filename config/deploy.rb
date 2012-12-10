@@ -16,7 +16,7 @@ role :web, location                         # Your HTTP server, Apache/etc
 role :app, location                       # This may be the same as your `Web` server
 role :db,  location, :primary => true # This is where Rails migrations will run
 
-set :user, "ubuntu"
+set :user, "root"
 set :use_sudo, false
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "nubhub")] 
