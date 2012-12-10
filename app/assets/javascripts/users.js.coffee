@@ -1,4 +1,3 @@
-state = "following"
 
 jQuery ->
 	prepareEventHandlers()
@@ -26,9 +25,6 @@ onClickFollowing = () ->
 	)
 
 displayFollowing = () ->
-	if state == "following"
-		return
-	state = "following"
 	toggleTab("following")
 	$("#uploads_container").hide()
 	$("#following_container").show()
@@ -41,9 +37,6 @@ onClickUploads = () ->
 	)
 
 displayUploads = () ->
-	if state == "uploads"
-		return
-	state = "uploads"
 	toggleTab("uploads")
 	$("#following_container").hide()
 	$("#uploads_container").show()
@@ -60,7 +53,6 @@ toggleTab = (tab) ->
 
 onShowModal = () ->
 	$(".upload_notes_button").live('click', (e)->
-		alert("WORKING")
 		$("#myModal").modal('show')
 	)
 
