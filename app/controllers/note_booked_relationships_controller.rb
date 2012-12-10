@@ -8,10 +8,14 @@ class NoteBookedRelationshipsController < ApplicationController
         @user.courses.delete(@course)
         flash[:success] =  "Removed course"
       end
-      @subject = Subject.find(params[:id])
-      respond_to do |format|
-        format.html { redirect_to @subject } 
-        format.js
+      if params[:on_user_page]
+        return
+      else 
+        @subject = Subject.find(params[:id])
+        respond_to do |format|
+          format.html { redirect_to @subject } 
+          format.js
+        end
       end
     end
   end

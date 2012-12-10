@@ -95,7 +95,7 @@
                     class: "my_notes_x_icon"   
                 ), {
                     controller: "note_booked_relationships", action: "destroy", 
-                    course: "#{course.id}", user: "#{current_user.id}"
+                    course: "#{course.id}", user: "#{current_user.id}", on_user_page: "true"
                 }, class: "remove_class", method: "delete", remote: true
               %>
               <div class="content_line_line"></div>
@@ -126,7 +126,7 @@
                 ), {
                     controller: "notes", action: "destroy", 
                     course: "#{note.course.id}", user: "#{current_user.id}",
-                    note: "#{note.id}"
+                    note: "#{note.id}", on_user_page: "true"
                 }, class: "remove_class", method: "delete", remote: true
               %> 
               <div class="content_line_line"></div>
