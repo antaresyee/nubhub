@@ -12,8 +12,8 @@ class DownloadRelationshipsController < ApplicationController
 			uploader.retrieve_from_store!(File.basename(@note.file.to_s))
 			uploader.cache_stored_file!
 			send_file uploader.file.path
-			flash[:success] =  "Downloaded note"
 		end
+		redirect_to :back
 	end
 
 	def destroy

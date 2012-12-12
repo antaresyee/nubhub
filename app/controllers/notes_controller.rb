@@ -1,3 +1,4 @@
+require 'aws/s3'
 class NotesController < ApplicationController
   def index
   	@notes = Note.all

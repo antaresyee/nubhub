@@ -25,6 +25,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'aws-s3', require: "aws/s3"
+gem 'fog'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'carrierwave'
