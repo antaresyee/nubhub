@@ -1,0 +1,41 @@
+
+argu_mentum, argu_menti_, neu, proof, evidence, argument
+
+auctor, aucto_ris, masc, increaser; author, originator
+
+beneficium, beneficii_, neu, benefit, kindness; favor
+
+familia, familiae, fem, household, family
+
+Graecia, Graeciae, fem, Greece
+
+iu_dex, iu_dicis, masc, judge, juror
+
+iu_dicium, iu_dicii_, neu, judgement, decision, opinion; trial
+
+scelus, sceleris, neu, evil deed, crime, sin, wickedness
+
+quis? quid? iterrog pron, who? whose? whom? what? which?
+
+qui_? quae? quod? interrog adj, what? which? what kind of? what (a)! what sort of!
+
+certus, certa, certum, definite, sure, certain, reliable
+
+gravis, grave, heavy, weighty; serious, important; severe, grievous
+
+immorta_lis, immorta_le, not subject to death, immortal
+
+at, conj, but; but, mind you; but, you say; "stronger than sed"
+
+misi, conj, if... not, unless; except
+
+contra_, prep + acc, against
+
+iam, adv, now, already, soon
+
+de_lecto_, de_lecta_re, de_lecta_vi_, de_lecta_tum, to delight, charm, please
+
+li_bero_, li_bera_re, li_bera_vi_, li_bera_tum, to free, liberate
+
+paro_, para_re, para_vi_, para_tum, to prepare, provide; get, obtain
+

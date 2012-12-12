@@ -1,0 +1,396 @@
+slotted aloha vs pure unslotted aloha
+slotted involves synchronization with the slots
+slots have to be evenly divided and such
+pure aloha is more decentralized but less efficient
+twice as unefficient as slotted
+becuase probably of success gets multiplied by another factors 
+of (1-p)^n-1
+
+Csma - carrier sense multiple access
+listen to channel before sending
+if channel is taken up then dont transmit
+
+collisions can still occur due to propogation delay
+say one node senses free channel and begins
+then shortly after another node senses the channel and sees
+that it is free so it also begins 
+
+note role of distance and propogation delay in transmitting
+
+csma/cd
+collision detection
+when collision detected stop transmitting
+reduce channel wastage
+easy to implement in wired LANs, but in wireless uh oh
+
+difference in MAC protocols
+channel partitioning
+efficient at high loads cause everyone gets a share
+but inefficient at lower loads
+only 1/N of channel can be used by a single node
+
+random access MAC protocols 
+efficient at low loads
+single node can utilize the entire channel
+at higher loads, there will be more clashes
+and efficiency lowered
+
+taking turns protocols - best of both worlds?
+polling - master node polls slave nodes to take turns
+but signle point of failure
+added polling latency
+
+tokens
+nodes pass token around
+only node with token can transmit
+token overhead
+what happens if token gets lost?
+
+summary of MAC protocols
+channel partitioning
+by time or frequency
+
+random partitioning
+aloha, slotted and pure
+carrier sense multiple access plus or minus CD
+taking turns - polling and tokens 
+
+
+ETHERNET
+hubs are less efficient than switches
+switches tranmit to exact locations
+hubs just transmit everywhere and then apckets gets droppped
+if they aren't on the right path
+
+ethernet preamble
+7 bytes of certain sequence
+then 1 byte of another sequence
+used to syncrhonize reciever and sender clock rates
+
+address 6 bbytes
+if adapter receives matching address it will send it up to the 
+network layer
+else drops it
+
+type 
+CRC code - for error detection
+
+ethernet is unreliable connectionles
+
+ethernet uses csma/cd
+ethernet adapter does not transmit if channel is being used
+- carrier sense
+if adapter detects that channelis being used by another adapter
+it stops current transmissions
+- collision detection
+if collision detected ethernet adapter will 
+wait random period of time before trying 
+to retransmit
+- random access
+
+ethernet adaptor will wait until channel free
+start transmitting
+if tranmission completes without any disruption then 
+its complete
+if detects another transmission
+aobrts and sends jam signal
+
+after aborting it will go into exponential backoff
+after the mth collision it will choose a k from
+0 to 2^m-1 and wait K*512 bit times then
+retry to send if channel is free
+note that even if it ahs collied 100 times the adapter
+can still decide not to wait
+it's just that it becomes more likely that the adapter will
+wait longer after more aborts
+
+is it possible for collision to be detected
+in ethernet but not the MAC layers
+
+CSMA/CD does not use MAC layer ACKs
+
+CSMA/CD efficiency
+as the propogation delay between two nodes goes to 0 the efficiency
+becomes one
+this makes sense because the inefficiency is due to propogation delay
+as the time to transmit goes to inifinity
+efficiency goes to 1
+this also makes sense
+because then the link will always be used
+and all nodes will know
+1/(1+5tprop/ttrans)
+
+much better than aloha but still decentralized, simple, cheap
+
+no cannot use same concepts in Ethernet as in wireless
+because ethernet tranmits on a different medium
+wireless is dispersive
+so signal strength decreases
+
+48 bit MAC address built into machines
+MAC link layer used to get frame from one interface to another
+physically connected interface (usually within the same network)
+
+
+ip addresses not portable like MAC addresses are
+can move LAN adapter from one net to another
+cant do that with IP
+IP address depends on which subnet you are in
+MAC - social security number
+IP - postal address
+
+ARP: Address resolution protocol
+tables in routers
+ARP table
+IP address mapped to MAC address
+there is a time to live field
+
+ARP tables are soft state
+information that times out unless refreshed
+ARP is plug and play
+
+say A doesnt know MAC address for B
+A sends broadcast msg to network with B's ip address
+
+B replies to A unicast with its MAC address then A stores it 
+in its ARP table
+
+Routing to another LAN example
+A wants to send to B
+encapulates ip datagram from A to B in link layer frame
+frame gets sent to R MAC address
+R extracts IP datagram
+sees it is to be sent to B
+then encapsulates the datagrame in link layer frame
+frame gets sent to B MAC address
+
+switches store and forward ethernet frames
+examine frame header and selectively forward frame
+based on MAC destination address in link layer frame
+when frame is to be forwarded on segment uses CSMA/CD 
+to access segment
+
+hosts are unaware of switches
+switches are plug and play, require no configuration
+
+switch has a switch table
+when switch receives a frame, it records the source
+MAC address and which interface it came from
+so switch learns which hosts can be reached through which interfaces
+TTL field in switch
+entries dropped if they go stale
+- this is what leads to the plug and play 
+
+switch filtering and forwarding
+filtering - if frame belongs to network it came from switch
+will drop the frame
+- because then the frame will have already gone to destination
+else switch will forward the frame to the appropriate interface
+but if the interface is not known, the switch will
+broadcast the frame to all interfaces except the one the 
+frame came from
+
+
+switch breaks subnet into LAN segments
+switch filters frames such that frames being sent within a 
+single subnet are isolated to a single subnet
+these segments become separate collision domains 
+
+switches dedicated access
+hosts have direct connection to switch
+full duplex
+
+switches versus routers
+routers are for network layer
+switches are link
+
+MPLS
+multiprotocol layer switching
+can forward along paths that IP alone would not allow
+- source specific routing
+
+priciples behind data link layer services
+error detection and sometimes correction
+link layer addressing
+sharing a broadcast channel: multiple access
+
+ethernet, switched LANs, PPP
+virtualized networks ATM, MPLS
+
+CRC checks - r+1 generator, choose r CRC bits
+can detect all burst errors less than r+1 bits
+
+different adaptation layers for different services
+asynchronous transfer mode
+have to adapt upper layers to ATM
+ATM has addresses too
+from IP to ATM
+
+WIRELESS
+
+variety of wireless network architectures
+single-hop to multi-hop
+wireless: physical and MAC layers are completely different
+you mean physical and link
+
+want to keep physical link layer behavior in wireless
+for wireless medium access control
+use collision avoidance CSMA/CA not CSMA/CD
+
+for CDMA if transmitted signal does not equal the sensed signal
+then sender knows its a collision -> ABORT
+
+wireless medium access control
+depends on signal to noise ratio
+cannot send and listen simultaneously
+signal not the same at different locations
+
+transmitter can only hear itself
+cannot determine signal quality at receiver
+
+signal reception is based on SINR
+
+hidden terminal problem
+when a terminal B is between A and C
+A and C cannot hear each other but B can hear both of them
+
+exposed terminal problem
+a terminal X hears a terminal A, and X wants to transmit to Y
+A cannot reach Y so X should transmit
+but it wont
+
+solution to wireless MAC problem?
+do not transmit in some greater region?
+
+proposed solution: RTS AND CTS
+basically jsut ACKs
+
+does not solve hidden terminal
+what if while waiting on a CTS, receives an RTS
+
+large CS zone aggravates exposed terminal problem
+but solves the hidden terminal problem to some extent
+
+WIRELESS CONTINUED
+
+wireless base station
+attached to wired network
+responsible for sending packets from wired network to 
+wireless hosts
+
+handoff
+modbile host changes base stations
+ad hoc mode
+there are no base stations
+nodes can only transmit to other nodes within link coverage
+nodes organize themselves into a network
+
+CDMA - wireless
+code division multiple access
+each host has its own code
+multiplies packets by that code
+allows receivers to distinguish where the packet came from
+minimal interference if codes are orthogonal
+
+receiver can extract message from multiple senders 
+
+802.11 MAC protocol: CSMA/CA
+if sense that channel is idle
+send entire packet
+if sense that channel is busy
+then wait random time interval before checking again
+if do not receive ACK then increase random backoff interval and
+try again
+
+collision avoidance
+send RTS to access point
+when access poit successfully gets single RTS
+send out a CTS to all terminals withing AP range
+then all those terminals will defer tranmission until the
+ACK is heard
+
+RTS has reserved tranmission time
+
+cellular networks use combined TDMA/FDMA
+
+mobile host in mobile network
+has home agent and permanent address
+but can move around to a different mobile network
+where there will be a foreign agent and a care of address
+
+mobility 
+either let routing take care of it
+or let the end systems take care of it
+indriect or direct routing
+
+mobile registers to foreign agent
+foreign agent tells home agent about the mobile
+now both home and foreign agents know where the mobile is
+
+indirect routing
+correspondant talks to home agent
+home agent routes to foreign
+foreign talks to mobile
+mobile talks directly to correspondant
+leads to triangle routing
+which is inefficient when mobile and correspondant are in 
+the same network
+on going connections can be maintained
+
+direct routing 
+correspondant talks to home agent
+home agent responds with the address of foreign agent
+correspondant talks to foreign agent 
+correspodent talks to foreign agent
+FA talks to mobile
+mobile speaks directly to correspondent
+
+direct communication overcomes triangle routing problem
+but it is non-transparent to correspondent
+what if mobile changes visited network
+
+to deal with mobility in direct routing 
+have an anchor FA
+the first FA visited
+then have anchor FA forward packets to next FAs
+
+just note, GSM and mobile IP are different
+
+
+CRYPTOGRAPHY
+
+message digests 
+run hash function on message
+produce fixed size fingerprint
+digital signiature is equal to signed message digest
+bob has large message
+runs hash on message
+encrypts hash with private key
+sends message and encrypted has 
+
+alice gets large message and encrypted hash
+encrypts message to get hash digest
+decrypt bobs encrypted hash with public key
+decrypted hash should equal hashed messaged
+
+trusted 3rd parties
+to symmetric key problem
+need secret key dsitribution center
+
+for asym cyrpto
+need to look at certification authority
+to prove that bobs private key is actually his private key
+
+key distribution center 
+
+certification authority
+bob gives public key to CA
+CA signs bobs public key with CA private key
+this is the certificate
+then alice wants to get bobs public key
+decrypts the certificate with the CAs public key
+gets bobs public key
+
+
+
+
