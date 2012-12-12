@@ -13,7 +13,6 @@ class DownloadRelationshipsController < ApplicationController
 			uploader.cache_stored_file!
 			send_file uploader.file.path
 		end
-		redirect_to :back
 	end
 
 	def destroy
